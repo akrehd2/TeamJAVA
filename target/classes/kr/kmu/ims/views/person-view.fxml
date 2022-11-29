@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxdemo.PersonController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <AnchorPane minHeight="183.0" minWidth="478.0" prefHeight="183.0" prefWidth="478.0">
+      <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+      </padding>
+      <children>
+         <Label layoutX="34.0" layoutY="60.0" text="Name:" />
+         <TextField fx:id="nameText" layoutX="90.0" layoutY="56.0" prefHeight="25.0" prefWidth="279.0" promptText="Full Name max 50 chars" />
+         <Label layoutX="34.0" layoutY="93.0" text="Age:" />
+         <Label layoutX="31.0" layoutY="126.0" text="Gender:" />
+         <TextField fx:id="ageText" layoutX="90.0" layoutY="89.0" promptText="Age" />
+         <Button fx:id="addButton" layoutX="408.0" layoutY="147.0" mnemonicParsing="false" onAction="#onAddButtonClick" text="Add Person" />
+         <Label layoutX="34.0" layoutY="6.0" text="Person Detail">
+            <font>
+               <Font name="System Bold" size="24.0" />
+            </font>
+         </Label>
+         <ComboBox fx:id="genderCombo" layoutX="90.0" layoutY="122.0" prefWidth="150.0" />
+      </children>
+   </AnchorPane>
+   <TableView fx:id="personTableView" editable="true" prefHeight="206.0" prefWidth="500.0">
+     <columns>
+
+     </columns>
+   </TableView>
+   <AnchorPane prefHeight="51.0" prefWidth="500.0">
+      <children>
+         <Button fx:id="saveButton" layoutX="403.0" layoutY="13.0" mnemonicParsing="false" onAction="#onSaveButtonClick" text="Save Data to disk" />
+         <Button fx:id="loadButton" layoutX="250.0" layoutY="13.0" mnemonicParsing="false" onAction="#onLoadButtonClick" text="Load Data from disk" />
+         <Button fx:id="clearButton" layoutX="20.0" layoutY="13.0" mnemonicParsing="false" onAction="#onClearButtonClick" text="Clear List" />
+      </children>
+   </AnchorPane>
+</VBox>
