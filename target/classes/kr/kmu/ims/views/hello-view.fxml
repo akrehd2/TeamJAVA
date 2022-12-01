@@ -1,16 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="kr.kmu.ims.controllers.HelloController">
+<VBox alignment="CENTER" prefHeight="626.0" prefWidth="887.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kmu.ims.controllers.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <children>
+        <Pane prefHeight="626.0" prefWidth="925.0">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" text="Document Information">
+                    <font>
+                        <Font name="Franklin Gothic Medium" size="18.0" />
+                    </font></Label>
+                <Label layoutX="255.0" layoutY="15.0" text="Adjustment Information">
+                    <font>
+                        <Font name="Franklin Gothic Medium" size="17.0" />
+                    </font></Label>
+                <Pane layoutX="14.0" layoutY="36.0" prefHeight="200.0" prefWidth="233.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
+                    <children>
+                        <Label layoutX="20.0" layoutY="30.0" text="GAN No:">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="59.0" text="Adj Date:">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="93.0" text="Store:">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="125.0" text="Status:">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="161.0" text="Status Date:">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <TextField layoutX="90.0" layoutY="26.0" prefHeight="23.0" prefWidth="66.0" promptText="search">
+                            <font>
+                                <Font name="Arial Italic" size="12.0" />
+                            </font>
+                        </TextField>
+                        <Button layoutX="174.0" layoutY="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="26.0" text="Button" />
+                        <DatePicker layoutX="90.0" layoutY="56.0" prefHeight="22.0" prefWidth="66.0" promptText="  /  /" />
+                        <ChoiceBox layoutX="90.0" layoutY="90.0" prefHeight="22.0" prefWidth="120.0" />
+                        <TextField layoutX="90.0" layoutY="121.0" prefHeight="22.0" prefWidth="120.0" />
+                        <DatePicker layoutX="90.0" layoutY="158.0" prefHeight="22.0" prefWidth="66.0" promptText="  /  /" />
+                    </children></Pane>
+                <Pane layoutX="255.0" layoutY="36.0" prefHeight="200.0" prefWidth="264.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
+                    <children>
+                        <Label layoutX="14.0" layoutY="30.0" text="Adj mode">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font></Label>
+                        <Label layoutX="14.0" layoutY="60.0" text="Reason">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <ChoiceBox layoutX="73.0" layoutY="26.0" prefHeight="22.0" prefWidth="165.0" />
+                        <TextArea layoutX="72.0" layoutY="60.0" prefHeight="123.0" prefWidth="165.0" />
+                    </children></Pane>
+                <TextArea layoutX="526.0" layoutY="36.0" prefHeight="200.0" prefWidth="307.0" promptText="Text area" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font></TextArea>
+                <TableView layoutX="14.0" layoutY="255.0" prefHeight="263.0" prefWidth="820.0">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Item Id" />
+                        <TableColumn prefWidth="96.33330535888672" text=" Item Code" />
+                        <TableColumn prefWidth="212.00001525878906" text="Description" />
+                        <TableColumn prefWidth="89.33331298828125" text="Location" />
+                        <TableColumn prefWidth="81.33328247070312" text="Uom" />
+                        <TableColumn prefWidth="77.3333740234375" text="Adj Qty" />
+                        <TableColumn prefWidth="143.66668701171875" text="Reason" />
+                        <TableColumn prefWidth="42.3333740234375" />
+                    </columns>
+                </TableView>
+                <Button layoutX="14.0" layoutY="526.0" mnemonicParsing="false" text="+ Add line item">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font></Button>
+                <Button layoutX="398.0" layoutY="561.0" mnemonicParsing="false" text="Finalize">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font></Button>
+                <Label layoutX="680.0" layoutY="531.0" text="Total Qty:">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font>
+                </Label>
+                <TextField layoutX="738.0" layoutY="528.0" prefHeight="22.0" prefWidth="96.0" />
+                <Button layoutX="630.0" layoutY="561.0" mnemonicParsing="false" text="Delete">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font></Button>
+                <Button layoutX="752.0" layoutY="561.0" mnemonicParsing="false" text="Save &amp; Close">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font></Button>
+                <Button layoutX="693.0" layoutY="561.0" mnemonicParsing="false" text="Close">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font></Button>
+            </children>
+        </Pane>
+    </children>
 </VBox>

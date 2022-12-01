@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kmu.ims.controllers.RootLayoutController">
@@ -30,18 +31,22 @@
    </top>
    <center>
       <TabPane fx:id="rootTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="Untitled Tab 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
+          <tabs>
+              <Tab text="Dashboard">
+                  <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <children>
+                              <ImageView fitHeight="388.0" fitWidth="583.0" layoutX="23.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="76.37539672851562" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="77.0">
+                                  <image>
+                                      <Image url="@images/dashboard.png" />
+                                  </image>
+                              </ImageView>
+                              <Button fx:id="empButton" layoutX="479.0" layoutY="301.0" mnemonicParsing="false" onAction="#empButtonClick" prefHeight="106.0" prefWidth="126.0" style="-fx-background-color: transparent;" />
+                          </children></AnchorPane>
+                  </content>
+              </Tab>
+
+          </tabs>
       </TabPane>
    </center>
    <left>
