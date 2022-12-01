@@ -3,6 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="830.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kmu.ims.controllers.RootLayoutController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
@@ -30,18 +32,23 @@
    </top>
    <center>
       <TabPane fx:id="rootTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="Untitled Tab 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-          <Tab text="Untitled Tab 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-        </tabs>
+          <tabs>
+              <Tab text="Dashboard">
+                  <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <children>
+                              <ImageView fitHeight="589.0" fitWidth="1180.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-107.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="-388.22515869140625" AnchorPane.topAnchor="14.0">
+                                  <image>
+                                      <Image url="@images/dashboard.png" />
+                                  </image>
+                              </ImageView>
+                              <Button fx:id="poButton" layoutX="21.0" layoutY="107.0" mnemonicParsing="false" onAction="#poButtonClick" prefHeight="108.0" prefWidth="133.0" style="-fx-background-color: transparent;" />
+                              <Button fx:id="empButton" layoutX="27.0" layoutY="501.0" mnemonicParsing="false" onAction="#empButtonClick" prefHeight="106.0" prefWidth="126.0" style="-fx-background-color: transparent;" />
+                          </children></AnchorPane>
+                  </content>
+              </Tab>
+
+          </tabs>
       </TabPane>
    </center>
    <left>
