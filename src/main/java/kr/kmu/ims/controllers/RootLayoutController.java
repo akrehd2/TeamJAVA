@@ -90,4 +90,11 @@ public class RootLayoutController {
     public void showHelloDialog(ActionEvent actionEvent) {
         showDialog("hello-view.fxml", "Hello window Dialog");
     }
+
+    public void empButtonClick(ActionEvent actionEvent) throws IOException {
+        showTab("note-Search.fxml", "note_Search");
+    }
 }
+
+
+
