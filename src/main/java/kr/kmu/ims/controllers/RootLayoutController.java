@@ -92,7 +92,7 @@ public class RootLayoutController {
     }
 
     public void empButtonClick(ActionEvent actionEvent) throws IOException {
-        showTab("note-Search.fxml", "note_Search");
+        showTab("hello-view.fxml", "note_Search");
     }
 }
 
