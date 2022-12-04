@@ -31,7 +31,7 @@
             <DatePicker layoutX="499.0" layoutY="57.0" prefHeight="22.0" prefWidth="99.0" />
             <Button fx:id="searchGoodsBtn" layoutX="605.0" layoutY="57.0" mnemonicParsing="false" onAction="#searchGoods" prefHeight="20.0" prefWidth="54.0" text="Search" />
 
-            <Button layoutX="665.0" layoutY="57.0">+ Add new</Button>
+            <Button fx:id="AddNewGoods" layoutX="665.0" layoutY="57.0" mnemonicParsing="false" onAction="#DetailBtnClick" prefHeight="20.0" prefWidth="54.0" text="AddNew" />
 
             <TableView fx:id="GoodsTable" editable="true" layoutX="3.0" layoutY="90.0" prefHeight="263.0" prefWidth="733.0" tableMenuButtonVisible="true">
             <columns>
