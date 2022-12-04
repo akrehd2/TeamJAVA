@@ -69,8 +69,8 @@
                                 <Font name="Arial" size="12.0" />
                             </font>
                         </Label>
-                        <ChoiceBox layoutX="73.0" layoutY="26.0" prefHeight="22.0" prefWidth="165.0" />
                         <TextArea layoutX="72.0" layoutY="60.0" prefHeight="123.0" prefWidth="165.0" />
+                  <TextField layoutX="73.0" layoutY="26.0" prefHeight="22.0" prefWidth="165.0" />
                     </children></Pane>
                 <TextArea layoutX="526.0" layoutY="36.0" prefHeight="200.0" prefWidth="307.0" promptText="Text area" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
                     <font>
