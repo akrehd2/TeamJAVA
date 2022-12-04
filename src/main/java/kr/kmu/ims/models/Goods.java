@@ -77,7 +77,7 @@ public class Goods {
         return adjustment_date.get();
     }
 
-    public void setHireDate(Date adjustmentdate){
+    public void setAdjustment_Date(Date adjustmentdate){
         this.adjustment_date.set(adjustmentdate);
     }
 
@@ -107,7 +107,7 @@ public class Goods {
         return adjustment_reason.get();
     }
 
-    public void setJobId (String adjustmentReason){this.adjustment_reason.set(adjustmentReason);}
+    public void setAdjustment_reason (String adjustmentReason){this.adjustment_reason.set(adjustmentReason);}
 
     public StringProperty adjustmentReasonProperty() {
         return adjustment_reason;
