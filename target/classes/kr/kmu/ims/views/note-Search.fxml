@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="396.0" prefWidth="779.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kmu.ims.controllers.RootLayoutController">
+<VBox alignment="CENTER" prefHeight="396.0" prefWidth="779.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kmu.ims.controllers.Note_SearchController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -29,14 +29,16 @@
             <TextField layoutX="215.0" layoutY="57.0" prefHeight="22.0" prefWidth="136.0" />
             <TextField layoutX="357.0" layoutY="57.0" prefHeight="22.0" prefWidth="136.0" />
             <DatePicker layoutX="499.0" layoutY="57.0" prefHeight="22.0" prefWidth="99.0" />
-            <Button layoutX="605.0" layoutY="57.0">Search</Button>
-            <Button layoutX="665.0" layoutY="57.0">+ Add new</Button>
-            <TableView layoutX="3.0" layoutY="90.0" prefHeight="263.0" prefWidth="733.0">
-                <columns>
-                    <TableColumn prefWidth="75.0" text="C1" />
-                    <TableColumn prefWidth="75.0" text="C2" />
-                </columns>
-            </TableView>
+            <Button fx:id="searchGoodsBtn" layoutX="605.0" layoutY="57.0" mnemonicParsing="false" onAction="#searchGoods" prefHeight="20.0" prefWidth="54.0" text="Search" />
 
+            <Button layoutX="665.0" layoutY="57.0">+ Add new</Button>
+
+            <TableView fx:id="GoodsTable" editable="true" layoutX="3.0" layoutY="90.0" prefHeight="263.0" prefWidth="733.0" tableMenuButtonVisible="true">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="57.0" text="Id" />
+                <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+
+            </columns>
+            </TableView>
         </children></Pane>
 </VBox>
