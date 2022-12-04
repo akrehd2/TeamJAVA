@@ -40,5 +40,6 @@
 
             </columns>
             </TableView>
+         <Button fx:id="DetailBtn" layoutX="606.0" layoutY="24.0" mnemonicParsing="false" onAction="#DetailBtnClick" text="Open" />
         </children></Pane>
 </VBox>
