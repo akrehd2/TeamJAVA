@@ -64,12 +64,6 @@
                             <font>
                                 <Font name="Arial" size="12.0" />
                             </font></Label>
-                        <Label layoutX="272.0" layoutY="93.0" text="Reason">
-                            <font>
-                                <Font name="Arial" size="12.0" />
-                            </font>
-                        </Label>
-                        <TextArea layoutX="324.0" layoutY="93.0" prefHeight="90.0" prefWidth="209.0" />
                   <TextField layoutX="78.0" layoutY="26.0" prefHeight="22.0" prefWidth="103.0" />
                   <Label layoutX="14.0" layoutY="61.0" text="Item Code">
                      <font>
@@ -86,21 +80,9 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="270.0" layoutY="30.0" text="Uom">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="270.0" layoutY="61.0" text="Adj Qty">
-                     <font>
-                        <Font name="Arial" size="12.0" />
-                     </font>
-                  </Label>
                   <TextArea layoutX="79.0" layoutY="95.0" prefHeight="50.0" prefWidth="103.0" />
                   <TextField layoutX="79.0" layoutY="59.0" prefHeight="22.0" prefWidth="103.0" />
                   <TextArea layoutX="79.0" layoutY="153.0" prefHeight="41.0" prefWidth="103.0" />
-                  <TextField layoutX="324.0" layoutY="26.0" />
-                  <TextField layoutX="324.0" layoutY="59.0" />
                     </children></Pane>
                 <TableView layoutX="14.0" layoutY="255.0" prefHeight="269.0" prefWidth="846.0">
                     <columns>
