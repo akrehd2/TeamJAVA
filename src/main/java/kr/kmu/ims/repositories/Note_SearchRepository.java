@@ -60,7 +60,7 @@ public class Note_SearchRepository {
             ResultSet rs = DBUtil.dbExecuteQuery(selectStmt);
 
             //Send ResultSet to the getCustomerList method and get customer object
-            ObservableList<Goods> list = getGoodsist(rs);
+            ObservableList<Goods> list = getGoodlist(rs);
 
             //Return customer object
             return list;
@@ -72,7 +72,7 @@ public class Note_SearchRepository {
     }
 
     //Select * from customers operation
-    private static ObservableList<Goods> getGoodsist(ResultSet rs) throws SQLException, ClassNotFoundException {
+    private static ObservableList<Goods> getGoodlist(ResultSet rs) throws SQLException, ClassNotFoundException {
         //Declare a observable List which comprises of Customer objects
         ObservableList<Goods> empList = FXCollections.observableArrayList();
 
