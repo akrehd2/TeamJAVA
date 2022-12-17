@@ -9,6 +9,7 @@ module kr.kmu.ims {
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
     requires java.sql.rowset;
+    requires javax.persistence;
 
     opens kr.kmu.ims to javafx.fxml;
     exports kr.kmu.ims;

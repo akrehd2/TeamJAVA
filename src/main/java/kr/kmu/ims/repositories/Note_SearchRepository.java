@@ -60,7 +60,10 @@ public class Note_SearchRepository {
             ResultSet rs = DBUtil.dbExecuteQuery(selectStmt);
 
             //Send ResultSet to the getCustomerList method and get customer object
-            ObservableList<Goods> list = getGoodlist(rs);
+
+            ObservableList<Goods> list = getGoodslist(rs);
+            System.out.println(list.get(0).getGoodsAdjustmentNoteId());
+
 
             //Return customer object
             return list;
@@ -72,53 +75,42 @@ public class Note_SearchRepository {
     }
 
     //Select * from customers operation
-    private static ObservableList<Goods> getGoodlist(ResultSet rs) throws SQLException, ClassNotFoundException {
+
+    private static ObservableList<Goods> getGoodslist(ResultSet rs) throws SQLException, ClassNotFoundException {
         //Declare a observable List which comprises of Customer objects
-        ObservableList<Goods> empList = FXCollections.observableArrayList();
+        ObservableList<Goods> ganList = FXCollections.observableArrayList();
 
         while (rs.next()) {
-            Goods emp = new Goods();
-            emp.setGoodsAdjustmentNoteId(rs.getInt("GOODS_ADJUSTMENT_NOTE_ID"));
-            emp.setDocument_no(rs.getString("DOCUMENT_NO"));
-            emp.setAdjustment_Date(rs.getDate("ADJUSTMENT_DATE"));
-            emp.setTrans_type(rs.getString("TRANS_TYPE"));
-            emp.setAdjustment_mode(rs.getString("ADJUSTMENT_MODE"));
-            emp.setAdjustment_reason(rs.getString("ADJUSTMENT_REASON"));
-            emp.setStoreid(rs.getInt("STOREID"));
-            emp.setRemarks(rs.getString("REMARKS"));
-            emp.setCreated_by(rs.getInt("created_by"));
-            emp.setCreated_on(rs.getDate("created_on"));
-            emp.setLast_updated_by(rs.getInt("last_updated_by"));
-            emp.setLast_updated_on(rs.getDate("last_updated_on"));
-            emp.setStatus(rs.getString("status"));
-            emp.setStatus_date(rs.getDate("STATUS_DATE"));
-            emp.setIs_finalized(rs.getInt("IS_FINALIZED"));
-            emp.setFinalized_by(rs.getInt("FINALIZED_BY"));
-            emp.setFinalized_on(rs.getDate("FINALIZED_ON"));
+            Goods gan = new Goods();
+            gan.setGoodsAdjustmentNoteId(rs.getInt("GOODS_ADJUSTMENT_NOTE_ID"));
+            gan.setDocument_no(rs.getString("DOCUMENT_NO"));
+            gan.setAdjustment_Date(rs.getDate("ADJUSTMENT_DATE"));
+            gan.setTrans_type(rs.getString("TRANS_TYPE"));
+            gan.setAdjustment_mode(rs.getString("ADJUSTMENT_MODE"));
+            gan.setAdjustment_reason(rs.getString("ADJUSTMENT_REASON"));
+            gan.setStoreid(rs.getInt("STOREID"));
+            gan.setRemarks(rs.getString("REMARKS"));
+            gan.setCreated_by(rs.getInt("created_by"));
+            gan.setCreated_on(rs.getDate("created_on"));
+            gan.setLast_updated_by(rs.getInt("last_updated_by"));
+            gan.setLast_updated_on(rs.getDate("last_updated_on"));
+            gan.setStatus(rs.getString("status"));
+            gan.setStatus_date(rs.getDate("STATUS_DATE"));
+            gan.setIs_finalized(rs.getInt("IS_FINALIZED"));
+            gan.setFinalized_by(rs.getInt("FINALIZED_BY"));
+            gan.setFinalized_on(rs.getDate("FINALIZED_ON"));
 
-            empList.add(emp);
+            ganList.add(gan);
         }
         //return empList (ObservableList of Customers)
-        return empList;
+        return ganList;
     }
 
     //*************************************
     //UPDATE an customer's email address
     //*************************************
     public static void updateCustomer (String id, String name) throws SQLException, ClassNotFoundException {
-        //Declare a UPDATE statement
-/*
-*     cust_id,
-    name,
-    gender,
-    age,
-    email,
-    street,
-    city,
-    country,
-    zip,
-    house
-    * */
+
         String updateStmt =
                 "BEGIN\n" +
                         "UPDATE customers\n" +

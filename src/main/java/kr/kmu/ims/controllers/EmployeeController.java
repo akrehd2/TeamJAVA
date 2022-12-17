@@ -14,6 +14,7 @@ import kr.kmu.ims.repositories.EmployeeRepository;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -53,7 +54,7 @@ public class EmployeeController {
     private TableColumn<Employee, String> empJobColumn;
 
     @FXML
-    private TableColumn<Employee, Date> empHireDateColumn;
+    private TableColumn<Employee, Timestamp> empHireDateColumn;
 
     //For MultiThreading
     private Executor exec;
@@ -88,7 +89,7 @@ public class EmployeeController {
         empPhoneNumberColumn.setCellValueFactory(cellData -> cellData.getValue().phoneNumberProperty());
 
         empJobColumn.setCellValueFactory(cellData -> cellData.getValue().jobIdProperty());
-        empHireDateColumn.setCellValueFactory(cellData -> cellData.getValue().hireDateProperty());
+      //  empHireDateColumn.setCellValueFactory(cellData -> cellData.getValue().hireDateProperty());
     }
 
 

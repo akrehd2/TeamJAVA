@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="models.GoodsAdjustmentNoteDetailsEntity">
+        <table name="GOODS_ADJUSTMENT_NOTE_DETAILS" schema="C##IMS" catalog=""/>
+        <attributes>
+            <id name="goodsAdjustmentNoteDetailId">
+                <column name="GOODS_ADJUSTMENT_NOTE_DETAIL_ID" precision="10"/>
+            </id>
+            <basic name="goodsAdjustmentNoteId">
+                <column name="GOODS_ADJUSTMENT_NOTE_ID" precision="10"/>
+            </basic>
+            <basic name="itemId">
+                <column name="ITEM_ID" precision="10"/>
+            </basic>
+            <basic name="itemCode">
+                <column name="ITEM_CODE" length="50"/>
+            </basic>
+            <basic name="itemDescription">
+                <column name="ITEM_DESCRIPTION"/>
+            </basic>
+            <basic name="stockQty">
+                <column name="STOCK_QTY" precision="-1"/>
+            </basic>
+            <basic name="uom">
+                <column name="UOM" nullable="false" length="50"/>
+            </basic>
+            <basic name="adjustmentQty">
+                <column name="ADJUSTMENT_QTY" precision="-1"/>
+            </basic>
+            <basic name="location">
+                <column name="LOCATION" nullable="false" length="50"/>
+            </basic>
+            <basic name="adjustmentReason">
+                <column name="ADJUSTMENT_REASON" nullable="false" length="50"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
