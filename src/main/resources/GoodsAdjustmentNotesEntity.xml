@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="models.GoodsAdjustmentNotesEntity">
+        <table name="GOODS_ADJUSTMENT_NOTES" schema="C##IMS" catalog=""/>
+        <attributes>
+            <id name="goodsAdjustmentNoteId">
+                <column name="GOODS_ADJUSTMENT_NOTE_ID" precision="10"/>
+            </id>
+            <basic name="documentNo">
+                <column name="DOCUMENT_NO" nullable="false" length="50"/>
+            </basic>
+            <basic name="adjustmentDate">
+                <column name="ADJUSTMENT_DATE" nullable="false" precision="6"/>
+            </basic>
+            <basic name="transType">
+                <column name="TRANS_TYPE" nullable="false" length="50"/>
+            </basic>
+            <basic name="adjustmentMode">
+                <column name="ADJUSTMENT_MODE" nullable="false" length="50"/>
+            </basic>
+            <basic name="adjustmentReason">
+                <column name="ADJUSTMENT_REASON" nullable="false" length="50"/>
+            </basic>
+            <basic name="storeid">
+                <column name="STOREID" nullable="false" precision="10"/>
+            </basic>
+            <basic name="remarks">
+                <column name="REMARKS" nullable="false" length="1000"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="CREATED_BY" nullable="false" precision="10"/>
+            </basic>
+            <basic name="createdOn">
+                <column name="CREATED_ON" nullable="false" precision="6"/>
+            </basic>
+            <basic name="lastUpdatedBy">
+                <column name="LAST_UPDATED_BY" nullable="false" precision="10"/>
+            </basic>
+            <basic name="lastUpdatedOn">
+                <column name="LAST_UPDATED_ON" nullable="false" precision="6"/>
+            </basic>
+            <basic name="status">
+                <column name="STATUS" nullable="false" length="50"/>
+            </basic>
+            <basic name="statusDate">
+                <column name="STATUS_DATE" nullable="false" precision="6"/>
+            </basic>
+            <basic name="isFinalized">
+                <column name="IS_FINALIZED" nullable="false" precision="1"/>
+            </basic>
+            <basic name="finalizedBy">
+                <column name="FINALIZED_BY" nullable="false" precision="10"/>
+            </basic>
+            <basic name="finalizedOn">
+                <column name="FINALIZED_ON" nullable="false" precision="6"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

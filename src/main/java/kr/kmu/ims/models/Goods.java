@@ -3,6 +3,7 @@ package kr.kmu.ims.models;
 import javafx.beans.property.*;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  * Created by ONUR BASKIRT on 27.02.2016.

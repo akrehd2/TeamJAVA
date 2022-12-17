@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+  <persistence-unit name="default">
+      <mapping-file>GoodsAdjustmentNotesEntity.xml</mapping-file>
+      <mapping-file>GoodsAdjustmentNoteDetailsEntity.xml</mapping-file>
+      <mapping-file>ItemsEntity.xml</mapping-file>
+
+      <class>models.GoodsAdjustmentNotesEntity</class>
+      <class>models.GoodsAdjustmentNoteDetailsEntity</class>
+      <class>models.ItemsEntity</class>
+      <properties>
+          <property name="toplink.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+          <property name="toplink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+          <property name="toplink.jdbc.user" value="c##ims"/>
+          <property name="toplink.jdbc.password" value="ims"/>
+          <property name="hibernate.connection.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+          <property name="hibernate.connection.driver_class" value="oracle.jdbc.OracleDriver"/>
+          <property name="hibernate.connection.username" value="c##ims"/>
+          <property name="hibernate.connection.password" value="ims"/>
+          <property name="openjpa.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+          <property name="openjpa.ConnectionDriverName" value="oracle.jdbc.OracleDriver"/>
+          <property name="openjpa.ConnectionUserName" value="c##ims"/>
+          <property name="openjpa.ConnectionPassword" value="ims"/>
+          <property name="eclipselink.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+          <property name="eclipselink.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+          <property name="eclipselink.jdbc.user" value="c##ims"/>
+          <property name="eclipselink.jdbc.password" value="ims"/>
+      </properties>
+  </persistence-unit>
+</persistence>

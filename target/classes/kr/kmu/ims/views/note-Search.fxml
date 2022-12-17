@@ -33,10 +33,18 @@
 
             <Button fx:id="AddNewGoods" layoutX="665.0" layoutY="57.0" mnemonicParsing="false" onAction="#DetailBtnClick" prefHeight="20.0" prefWidth="54.0" text="AddNew" />
 
-            <TableView fx:id="GoodsTable" editable="true" layoutX="3.0" layoutY="90.0" prefHeight="263.0" prefWidth="733.0" tableMenuButtonVisible="true">
+            <TableView fx:id="GoodsTable" editable="true" layoutX="24.0" layoutY="101.0" prefHeight="226.0" prefWidth="699.0" tableMenuButtonVisible="true">
             <columns>
-                <TableColumn fx:id="idColumn" prefWidth="57.0" text="Id" />
-                <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="GOODS_ADJUSTMENT_NOTE_ID" prefWidth="57.0" text="ID" />
+                <TableColumn fx:id="DOCUMENT_NO" prefWidth="75.0" text="DOCUMENT" />
+                <TableColumn fx:id="ADJUSTMENT_DATE" prefWidth="57.0" text="DATE" />
+                <TableColumn fx:id="TRANS_TYPE" prefWidth="75.0" text="TYPE" />
+                <TableColumn fx:id="ADJUSTMENT_MODE" prefWidth="73.0" text="MODE" />
+                <TableColumn fx:id="ADJUSTMENT_REASON" prefWidth="79.0" text="REASON" />
+
+                <TableColumn fx:id="REMARKS" prefWidth="93.0" text="REMARKS" />
+
+                <TableColumn fx:id="STATUS" prefWidth="75.0" text="STATUS" />
 
             </columns>
             </TableView>
