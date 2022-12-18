@@ -59,7 +59,7 @@ public class Note_SearchController {
     public TableColumn<Goods, String> STATUS_Date;
 
     @FXML
-    public TableColumn<Goods, Void> OpenButton;
+    public TableColumn<Goods, String> OpenButton;
     //For MultiThreading
     private Executor exec;
 
@@ -98,6 +98,8 @@ public class Note_SearchController {
         REMARKS.setCellValueFactory(cellData -> cellData.getValue().remarksProperty());
         STATUS.setCellValueFactory(cellData -> cellData.getValue().status_Property());
         STATUS_Date.setCellValueFactory(cellData -> cellData.getValue().status_date_Property().asString());
+
+        //OpenButton.setCellValueFactory(new PropertyValueFactory<Goods, String>("Button"));
 
         //add more of your fields here that we show in table.
         //ADJUSTMENT_DATE.setCellValueFactory(); .... do it ..
@@ -149,21 +151,10 @@ public class Note_SearchController {
     @FXML
     private void populateGoods(ObservableList<Goods> data) throws ClassNotFoundException {
         //Set items to the employeeTable
-
+        //addButtonToTable(data);
+        //OpenButton.setCellValueFactory(new PropertyValueFactory<Goods, String>("Button"));
         GoodsTable.setItems(data);
-        addButtonToTable(data);
 
-
-        System.out.println(data.get(0).getGoodsAdjustmentNoteId());
-        System.out.println(data.get(0).getDocument_no());
-        System.out.println(data.get(1).getGoodsAdjustmentNoteId());
-        System.out.println(data.get(1).getDocument_no());
-        System.out.println(data.get(2).getGoodsAdjustmentNoteId());
-        System.out.println(data.get(2).getDocument_no());
-
-        //GoodsTable.set
-
-        //GoodsTable.getItems().clear();
     }
 
 

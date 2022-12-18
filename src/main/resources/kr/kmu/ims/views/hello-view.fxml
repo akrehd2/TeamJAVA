@@ -81,9 +81,16 @@
                                 <Font name="Arial" size="12.0" />
                             </font>
                         </Label>
+                        <Label layoutX="228.0" layoutY="30.0" text="Reason">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <TextField layoutX="78.0" layoutY="26.0" prefHeight="22.0" prefWidth="103.0" />
                         <TextArea layoutX="79.0" layoutY="95.0" prefHeight="50.0" prefWidth="103.0" />
                         <TextField layoutX="79.0" layoutY="59.0" prefHeight="22.0" prefWidth="103.0" />
                         <TextArea layoutX="79.0" layoutY="153.0" prefHeight="41.0" prefWidth="103.0" />
+                  <TextField layoutX="228.0" layoutY="50.0" prefHeight="134.0" prefWidth="276.0" />
                     </children></Pane>
                 <TableView fx:id="NoteDetailTable" layoutX="14.0" layoutY="255.0" prefHeight="269.0" prefWidth="846.0">
                     <columns>
