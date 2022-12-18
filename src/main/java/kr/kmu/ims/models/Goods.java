@@ -1,6 +1,7 @@
 package kr.kmu.ims.models;
 
 import javafx.beans.property.*;
+import javafx.scene.control.Button;
 
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -28,6 +29,9 @@ public class Goods {
     private IntegerProperty finalized_by;
     private SimpleObjectProperty<Date> finalized_on;
 
+    private Button openButton;
+
+
     //Constructor
     public Goods() {
         this.goods_adjustment_note_id = new SimpleIntegerProperty();
@@ -47,6 +51,7 @@ public class Goods {
         this.is_finalized = new SimpleIntegerProperty();
         this.finalized_by = new SimpleIntegerProperty();
         this.finalized_on = new SimpleObjectProperty<>();
+        this.openButton = new Button("Open");
     }
 
     //goods_adjustment_note_id
@@ -254,5 +259,18 @@ public class Goods {
     public SimpleObjectProperty<Date> finalized_on_Property(){
         return finalized_on;
     }
+
+
+    public void setOpenButton(Button button)
+    {
+        this.openButton = button;
+    }
+
+    public Button getOpenButton()
+    {
+        return openButton;
+    }
+
+
 
 }
