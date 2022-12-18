@@ -39,6 +39,10 @@ public class NoteDetailController {
 
     @FXML
     private TextField searchIdText;
+    private TextField reasonText;
+    private TextField locationText;
+
+
     @FXML
     private TableView NoteDetailTable;
     @FXML
@@ -139,9 +143,11 @@ public class NoteDetailController {
     private void searchNote (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
             //Get Employee information
-            NoteDetail noteDetail = NoteDetailRepository.searchNoteDetail(IdText.getText());
+            //NoteDetail noteDetail = NoteDetailRepository.searchNoteDetail(IdText.getText());
+            ObservableList<NoteDetail> data=NoteDetailRepository.searchNoteDetail(IdText.getText());
             //Populate Employee on TableView and Display on TextArea
-            populateAndShowNoteDetail(noteDetail);
+            //populateAndShowNoteDetail(data);
+            populateNoteDetail(data);
         } catch (SQLException e) {
             e.printStackTrace();
             //resultArea.setText("Error occurred while getting employee information from DB.\n" + e);
@@ -166,7 +172,25 @@ public class NoteDetailController {
         NoteDetailTable.setItems(noteDetailsData);
     }
 
-    public void Save_NoteDetail(ActionEvent actionEvent) {
+    @FXML
+    private void Save_NoteDetail (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        //try {
+          //  NoteDetailRepository.updateLocation(locationText.getText(), reasonText.getText());
+            ////resultArea.setText("Email has been updated for, employee id: " + empIdText.getText() + "\n");
+        //} catch (SQLException e) {
+            //resultArea.setText("Problem occurred while updating email: " + e);
+        //}
+        try {
+            //add new employee
+            NoteDetailRepository.insertNoteDetail(locationText.getText(), reasonText.getText());
+            //resultArea.setText("Employee inserted! \n");
+
+            //reload all records
+            searchNote(actionEvent);
+        } catch (SQLException e) {
+            //resultArea.setText("Problem occurred while inserting employee " + e);
+            throw e;
+        }
     }
 
     public void Delete_NoteDetail(ActionEvent actionEvent) {
