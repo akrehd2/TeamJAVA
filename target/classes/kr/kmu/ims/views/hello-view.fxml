@@ -53,7 +53,7 @@
                                 <Font name="Arial Italic" size="12.0" />
                             </font>
                         </TextField>
-                        <Button layoutX="207.0" layoutY="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="26.0" text="Button" onAction="#searchNoteDetail"/>
+                        <Button layoutX="207.0" layoutY="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="26.0" text="Button" onAction="#searchNote"/>
                         <DatePicker layoutX="90.0" layoutY="56.0" prefHeight="22.0" prefWidth="66.0" promptText="  /  /" />
                         <ChoiceBox layoutX="90.0" layoutY="90.0" prefHeight="22.0" prefWidth="143.0" />
                         <TextField layoutX="90.0" layoutY="121.0" prefHeight="22.0" prefWidth="143.0" />
