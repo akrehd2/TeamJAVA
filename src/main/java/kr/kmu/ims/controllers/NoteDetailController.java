@@ -29,7 +29,8 @@ public class NoteDetailController {
     @FXML
     private final String viewPath = "/kr/kmu/ims/views/";
     @FXML
-    private TextField searchIdText;
+    private TextField reasonText;
+    private TextField locationText;
 
 
     @FXML
@@ -153,7 +154,25 @@ public class NoteDetailController {
         NoteDetailTable.setItems(noteDetailsData);
     }
 
-    public void Save_NoteDetail(ActionEvent actionEvent) {
+    @FXML
+    private void Save_NoteDetail (ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        //try {
+          //  NoteDetailRepository.updateLocation(locationText.getText(), reasonText.getText());
+            ////resultArea.setText("Email has been updated for, employee id: " + empIdText.getText() + "\n");
+        //} catch (SQLException e) {
+            //resultArea.setText("Problem occurred while updating email: " + e);
+        //}
+        try {
+            //add new employee
+            NoteDetailRepository.insertNoteDetail(locationText.getText(), reasonText.getText());
+            //resultArea.setText("Employee inserted! \n");
+
+            //reload all records
+            searchNote(actionEvent);
+        } catch (SQLException e) {
+            //resultArea.setText("Problem occurred while inserting employee " + e);
+            throw e;
+        }
     }
 
     public void Delete_NoteDetail(ActionEvent actionEvent) {

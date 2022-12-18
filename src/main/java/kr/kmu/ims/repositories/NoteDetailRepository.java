@@ -108,6 +108,50 @@ public class NoteDetailRepository {
         return gan;
     }
 
+    public static void updateLocation (String location, String reason) throws SQLException, ClassNotFoundException {
+        //Declare a UPDATE statement
+        //(EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, JOB_ID)
+        String updateStmt =
+                "BEGIN\n" +
+                        "UPDATE employees\n" +
+                        "SET " +
+                        //"   GOODS_ADJUSTMENT_NOTE_DETAIL_ID = '" + detail_id + "',\n" +
+                       // "   GOODS_ADJUSTMENT_NOTE_ID = '" + note_id + "',\n" +
+                       // "   LOCATION = " + description + ";\n" +
+                        "   ITEM_DESCRIPTION = " + location + ";\n" +
+                       // "   UOM = " + uom + ";\n" +
+                       // "   ADJUSTMENT_QTY = " + qty + ";\n" +
+                        "   ADJUSTMENT_REASON = " + reason + ";\n" +
+                        "   COMMIT;\n" +
+                        "END;";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+    }
+
+    public static void insertNoteDetail (String location, String reason) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt =
+                "BEGIN\n" +
+                        "INSERT INTO GOODS_ADJUSTMENT_NOTE_DETAILS\n" +
+                        "(LOCATION, ADJUSTMENT_REASON)\n" +
+                        "VALUES\n" +
+                        "(" + location+"','"+reason+"');\n" +
+                        "END;";
+
+        //Execute DELETE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
 
 
 
