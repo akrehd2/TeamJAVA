@@ -55,6 +55,24 @@ public class NoteDetailController {
     @FXML
     private TextField IdText;
 //--------------------------------------------------------
+    //Delete button
+    @FXML
+    private TextField Item_ID;
+
+    @FXML
+    private TextField Item_Code;
+
+    @FXML
+    private TextArea Description;
+
+    @FXML
+    private TextArea Location;
+
+    @FXML
+    private TextField Reason;
+
+//--------------------------------------------------------
+
     //Initializing the controller class.
     //This method is automatically called after the fxml file has been loaded.
 
@@ -125,7 +143,20 @@ public class NoteDetailController {
     public void Save_NoteDetail(ActionEvent actionEvent) {
     }
 
-    public void Delete_NoteDetail(ActionEvent actionEvent) {
+    public void Delete_NoteDetail(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String ID = Item_ID.textProperty().getValue();
+        String Code = Item_Code.textProperty().getValue();
+        String description = Description.textProperty().getValue();
+        String location = Location.textProperty().getValue();
+        String reason = Reason.textProperty().getValue();
+
+        try {
+            CustomerRepository.deleteCustomer(Item_Code.getText());
+            resultArea.setText("note_id deleted!  id: " + Item_Code.getText() + "\n");
+        } catch (SQLException e) {
+            resultArea.setText("Problem occurred while deleting note_id " + e);
+            throw e;
+        }
     }
 
 
