@@ -13,9 +13,9 @@ public class CustomerRepository {
     //*******************************
     //SELECT a Customer
     //*******************************
-    public static Customer searchCustomer (String id) throws SQLException, ClassNotFoundException {
+    public static Customer searchCustomer(String id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
-        String selectStmt = "SELECT * FROM customers WHERE cust_id="+id;
+        String selectStmt = "SELECT * FROM customers WHERE cust_id=" + id;
 
         //Execute SELECT statement
         try {
@@ -35,13 +35,12 @@ public class CustomerRepository {
     }
 
     //Use ResultSet from DB as parameter and set Customer Object's attributes and return customer object.
-    private static Customer getCustomerFromResultSet(ResultSet rs) throws SQLException
-    {
+    private static Customer getCustomerFromResultSet(ResultSet rs) throws SQLException {
         Customer cust = null;
         if (rs.next()) {
             cust = new Customer();
             cust.setCustomerId(rs.getInt("CUST_ID"));
-            cust.setName     (rs.getString( "NAME"));
+            cust.setName(rs.getString("NAME"));
         }
         return cust;
     }
@@ -49,7 +48,7 @@ public class CustomerRepository {
     //*******************************
     //SELECT Customers
     //*******************************
-    public static ObservableList<Customer> searchCustomers () throws SQLException, ClassNotFoundException {
+    public static ObservableList<Customer> searchCustomers() throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM customers";
 
@@ -89,20 +88,8 @@ public class CustomerRepository {
     //*************************************
     //UPDATE an customer's email address
     //*************************************
-    public static void updateCustomer (String id, String name) throws SQLException, ClassNotFoundException {
-        //Declare a UPDATE statement
-/*
-*     cust_id,
-    name,
-    gender,
-    age,
-    email,
-    street,
-    city,
-    country,
-    zip,
-    house
-    * */
+    public static void updateCustomer(String id, String name) throws SQLException, ClassNotFoundException {
+
         String updateStmt =
                 "BEGIN\n" +
                         "UPDATE customers\n" +
@@ -127,12 +114,12 @@ public class CustomerRepository {
     //*************************************
     //DELETE an customer
     //*************************************
-    public static void deleteCustomer (String id) throws SQLException, ClassNotFoundException {
+    public static void deleteCustomer(String id) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt =
                 "BEGIN\n" +
                         "   DELETE FROM customers\n" +
-                        "         WHERE cust_id ="+ id +";\n" +
+                        "         WHERE cust_id =" + id + ";\n" +
                         "   COMMIT;\n" +
                         "END;";
 
@@ -155,7 +142,7 @@ public class CustomerRepository {
                         "INSERT INTO customers\n" +
                         "(CUST_ID, NAME)\n" +
                         "VALUES\n" +
-                        "(" + id + ", '"+name+"');\n" +
+                        "(" + id + ", '" + name + "');\n" +
                         "END;";
 
         //Execute UPDATE operation
@@ -166,4 +153,32 @@ public class CustomerRepository {
             throw e;
         }
     }
+
+
+    //--------------------------------------------------------------------------
+    //finalize
+
+    public static void FinalizeUpdateDB(String id, String name) throws SQLException, ClassNotFoundException {
+
+        String updateStmt =
+                "BEGIN\n" +
+                        "UPDATE customers\n" +
+                        "SET " +
+//                        "   NAME = '" + name + "',\n" +
+//                        "   LAST_NAME = '" + lastname + "',\n" +
+//                        "   EMAIL = '" + email + "',\n" +
+                        "   NAME = '" + name + "'\n" +
+                        "WHERE CUST_ID = " + id + ";\n" +
+                        "   COMMIT;\n" +
+                        "END;";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
+            throw e;
+        }
+    }
+
 }

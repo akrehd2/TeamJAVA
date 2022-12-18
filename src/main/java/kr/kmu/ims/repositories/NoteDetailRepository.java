@@ -7,11 +7,14 @@ import kr.kmu.ims.util.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class NoteDetailRepository {
 
     //*******************************
     //SELECT a Customer
+    //*******************************
     //*******************************
     public static Customer searchCustomer (String id) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
@@ -91,18 +94,7 @@ public class NoteDetailRepository {
     //*************************************
     public static void updateCustomer (String id, String name) throws SQLException, ClassNotFoundException {
         //Declare a UPDATE statement
-/*
-*     cust_id,
-    name,
-    gender,
-    age,
-    email,
-    street,
-    city,
-    country,
-    zip,
-    house
-    * */
+
         String updateStmt =
                 "BEGIN\n" +
                         "UPDATE customers\n" +
@@ -160,9 +152,43 @@ public class NoteDetailRepository {
 
         //Execute UPDATE operation
         try {
+            System.out.print("Okay");
             DBUtil.dbExecuteUpdate(updateStmt);
         } catch (SQLException e) {
             System.out.print("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
+
+
+
+    //--------------------------------------------------------------------------
+    //finalize
+
+    public static void FinalizeUpdateDB(String id) throws SQLException, ClassNotFoundException {
+
+        Date from = new Date();
+        SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = transFormat.format(from);
+
+        String updateStmt ="BEGIN\n" +
+                "\nUPDATE GOODS_ADJUSTMENT_NOTES\n" +
+                "SET\n" +
+                "STATUS = 'finalized',\n" +
+                "STATUS_DATE = (to_timestamp( '" +format+"')) , \n" +
+                "Is_Finalized= '1' \n" +
+                "WHERE GOODS_ADJUSTMENT_NOTE_ID = '"+ id +"'; \n"+
+                "END;";
+        //Execute UPDATE operation
+
+
+        try {
+            System.out.print(updateStmt);
+            DBUtil.dbExecuteUpdate(updateStmt);
+
+
+        } catch (SQLException e) {
+            System.out.print("Error occurred while UPDATE Operation: " + e);
             throw e;
         }
     }

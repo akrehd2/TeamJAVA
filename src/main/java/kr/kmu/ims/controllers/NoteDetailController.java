@@ -5,14 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import kr.kmu.ims.models.Customer;
 import kr.kmu.ims.models.Employee;
 import kr.kmu.ims.repositories.CustomerRepository;
 import kr.kmu.ims.repositories.EmployeeRepository;
+import kr.kmu.ims.repositories.NoteDetailRepository;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -42,6 +40,13 @@ public class NoteDetailController {
     //For MultiThreading
     private Executor exec;
 
+//--------------------------------------------------------
+    //Finalize button
+    @FXML
+    private Button FinalBtn;
+    @FXML
+    private TextField IdText;
+//--------------------------------------------------------
     //Initializing the controller class.
     //This method is automatically called after the fxml file has been loaded.
 
@@ -61,12 +66,12 @@ public class NoteDetailController {
         //For multithreading: Create executor that uses daemon threads:
         exec = Executors.newCachedThreadPool((runnable) -> {
             Thread t = new Thread (runnable);
-            t.setDaemon(true);
+           t.setDaemon(true);
             return t;
         });
 
-        idColumn.setCellValueFactory(cellData -> cellData.getValue().customerIdProperty().asObject());
-        nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
+      //  idColumn.setCellValueFactory(cellData -> cellData.getValue().customerIdProperty().asObject());
+      //  nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
 
     }
 
@@ -186,5 +191,27 @@ public class NoteDetailController {
             resultArea.setText("Problem occurred while deleting employee " + e);
             throw e;
         }
+    }
+
+
+    @FXML
+    public void FinalBtnClick(ActionEvent actionEvent)
+    {
+        //해야하는 일...
+        //1. GOODS_ADJUSTMENT_NOTE에 값을 Status =“finalized”
+        //2 Status Date=Current date time
+        //3 Is Finalized=True
+
+        String ID = IdText.textProperty().getValue();
+        try {
+            System.out.print("ID : "+ ID);
+
+            NoteDetailRepository.FinalizeUpdateDB(ID);
+
+        } catch (SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 }

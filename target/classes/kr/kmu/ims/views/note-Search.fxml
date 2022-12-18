@@ -45,7 +45,7 @@
                 <TableColumn fx:id="REMARKS" prefWidth="93.0" text="REMARKS" />
 
                 <TableColumn fx:id="STATUS" prefWidth="75.0" text="STATUS" />
-
+                <TableColumn fx:id="OpenButton" prefWidth="75.0" text="OpenDetail" />
             </columns>
             </TableView>
          <Button fx:id="DetailBtn" layoutX="606.0" layoutY="24.0" mnemonicParsing="false" onAction="#DetailBtnClick" text="Open" />

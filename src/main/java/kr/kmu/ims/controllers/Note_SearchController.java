@@ -83,6 +83,9 @@ public class Note_SearchController {
     @FXML
     public TableColumn<Goods, Date> FINALIZED_ON;
 
+
+    @FXML
+    public TableColumn<Goods, Void> OpenButton;
     //For MultiThreading
     private Executor exec;
 
@@ -114,7 +117,7 @@ public class Note_SearchController {
 
         GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(cellData -> cellData.getValue().goodsAdjustmentNoteIdProperty().asObject());
         DOCUMENT_NO.setCellValueFactory(cellData -> cellData.getValue().documentNoProperty());
-
+       // OpenButton.setCellValueFactory(cellData -> cellData.getValue().documentNoProperty());
 
 
         //add more of your fields here that we show in table.
@@ -126,8 +129,6 @@ public class Note_SearchController {
 
     }
 
-    private final String viewPath = "/kr/kmu/ims/views/";
-
     public void showDialog(final String viewName, String title) {
 
         try {
@@ -138,7 +139,10 @@ public class Note_SearchController {
             stage.initStyle(StageStyle.DECORATED);
             stage.setTitle(title);
             stage.setScene(new Scene(root));
+
+
             stage.show();
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -152,6 +156,8 @@ public class Note_SearchController {
 
             //Populate Employees on TableView
             populateGoods(data);
+
+
         } catch (SQLException e) {
             System.out.println("Error occurred while getting employees information from DB.\n" + e);
             throw e;
@@ -165,17 +171,7 @@ public class Note_SearchController {
         //Set items to the employeeTable
 
         GoodsTable.setItems(data);
-
-
-        System.out.println(data.get(0).getGoodsAdjustmentNoteId());
-        System.out.println(data.get(0).getDocument_no());
-        System.out.println(data.get(1).getGoodsAdjustmentNoteId());
-        System.out.println(data.get(1).getDocument_no());
-        System.out.println(data.get(2).getGoodsAdjustmentNoteId());
-        System.out.println(data.get(2).getDocument_no());
-        //GoodsTable.set
-
-        //GoodsTable.getItems().clear();
+        //addButtonToTable(data);
     }
 
 
@@ -184,5 +180,55 @@ public class Note_SearchController {
 
         showDialog("hello-view.fxml", "note_detail");
     }
+
+
+
+
+    @FXML
+    private void addButtonToTable(ObservableList<Goods> data) {
+
+        TableColumn<Goods, Void> colBtn = new TableColumn("Button Column");
+
+        javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>> cellFactory = new javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>>() {
+            @Override
+            public TableCell<Goods, Void> call(final TableColumn<Goods, Void> param) {
+                final TableCell<Goods, Void> cell = new TableCell<Goods, Void>() {
+                    private final Button btn = new Button("Open");
+
+                    {
+                        btn.setOnAction(event -> {
+                            try {
+                                OpenFinalizedPage(data.get(getIndex()));
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+                return cell;
+            }
+        };
+        colBtn.setCellFactory(cellFactory);
+    }
+
+
+
+    @FXML
+    public void OpenFinalizedPage(Goods Goods) throws IOException {
+
+        showDialog("hello-view.fxml", "note_detail");
+    }
+
+
 }
 
