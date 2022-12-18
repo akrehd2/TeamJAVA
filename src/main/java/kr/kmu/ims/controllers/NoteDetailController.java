@@ -41,6 +41,7 @@ public class NoteDetailController {
     private TextField searchIdText;
     @FXML
     private TextField reasonText;
+    @FXML
     private TextField locationText;
 
 
