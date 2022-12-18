@@ -60,29 +60,15 @@ public class Note_SearchController {
     public TableColumn<Goods, String> ADJUSTMENT_MODE;
     @FXML
     public TableColumn<Goods, String> ADJUSTMENT_REASON;
-    @FXML
-    public  TableColumn<Goods, Integer> STOREID;
+
     @FXML
     public TableColumn<Goods, String> REMARKS;
-    @FXML
-    public  TableColumn<Goods, Integer> CREATED_BY;
-    @FXML
-    public TableColumn<Goods, Date> CREATED_ON;
-    @FXML
-    public  TableColumn<Goods, Integer> LAST_UPDATED_BY;
-    @FXML
-    public TableColumn<Goods, Date> LAST_UPDATED_ON;
+
     @FXML
     public TableColumn<Goods, String> STATUS;
-    @FXML
-    public TableColumn<Goods, Date> STATUS_DATE;
-    @FXML
-    public  TableColumn<Goods, Integer> IS_FINALIZED;
-    @FXML
-    public  TableColumn<Goods, Integer> FINALIZED_BY;
-    @FXML
-    public TableColumn<Goods, Date> FINALIZED_ON;
 
+    @FXML
+    public TableColumn<Goods, String> STATUS_Date;
 
     @FXML
     public TableColumn<Goods, Void> OpenButton;
@@ -117,9 +103,13 @@ public class Note_SearchController {
 
         GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(cellData -> cellData.getValue().goodsAdjustmentNoteIdProperty().asObject());
         DOCUMENT_NO.setCellValueFactory(cellData -> cellData.getValue().documentNoProperty());
-       // OpenButton.setCellValueFactory(cellData -> cellData.getValue().documentNoProperty());
-
-
+        ADJUSTMENT_DATE.setCellValueFactory(cellData -> cellData.getValue().adjustmentDateProperty());
+        TRANS_TYPE.setCellValueFactory(cellData -> cellData.getValue().transTypeProperty());
+        ADJUSTMENT_MODE.setCellValueFactory(cellData -> cellData.getValue().adjustmentModeProperty());
+        ADJUSTMENT_REASON.setCellValueFactory(cellData -> cellData.getValue().adjustmentReasonProperty());
+        REMARKS.setCellValueFactory(cellData -> cellData.getValue().remarksProperty());
+        STATUS.setCellValueFactory(cellData -> cellData.getValue().status_Property());
+        STATUS_Date.setCellValueFactory(cellData -> cellData.getValue().status_date_Property().asString());
         //add more of your fields here that we show in table.
         //ADJUSTMENT_DATE.setCellValueFactory(); .... do it ..
         //.. Thankyou.............nnn:)...
@@ -171,7 +161,7 @@ public class Note_SearchController {
         //Set items to the employeeTable
 
         GoodsTable.setItems(data);
-        //addButtonToTable(data);
+        addButtonToTable(data);
     }
 
 
@@ -179,17 +169,19 @@ public class Note_SearchController {
     public void DetailBtnClick(ActionEvent actionEvent) throws IOException {
 
         showDialog("hello-view.fxml", "note_detail");
+
     }
 
 
 
 
     @FXML
-    private void addButtonToTable(ObservableList<Goods> data) {
+    private void addButtonToTable(ObservableList<Goods> data)
+    {
 
         TableColumn<Goods, Void> colBtn = new TableColumn("Button Column");
-
-        javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>> cellFactory = new javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>>() {
+        javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>> cellFactory = new javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>>()
+        {
             @Override
             public TableCell<Goods, Void> call(final TableColumn<Goods, Void> param) {
                 final TableCell<Goods, Void> cell = new TableCell<Goods, Void>() {
