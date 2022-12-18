@@ -78,13 +78,7 @@ public class NoteDetailController {
            t.setDaemon(true);
             return t;
         });
-
-      //  idColumn.setCellValueFactory(cellData -> cellData.getValue().customerIdProperty().asObject());
-      //  nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-            Thread t = new Thread(runnable);
-            t.setDaemon(true);
-            return t;
-        });
+        
 
         //GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(new PropertyValueFactory<>("goodsAdjustmentNoteIdProperty"));
         //the above line is also a way to show data.

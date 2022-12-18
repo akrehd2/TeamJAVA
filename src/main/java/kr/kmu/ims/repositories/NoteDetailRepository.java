@@ -18,7 +18,6 @@ public class NoteDetailRepository {
     //SELECT a Customer
     //*******************************
     //*******************************
-    public static Customer searchCustomer (String id) throws SQLException, ClassNotFoundException {
     public static ObservableList<NoteDetail> searchNote () throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM GOODS_ADJUSTMENT_NOTE_DETAILS";
