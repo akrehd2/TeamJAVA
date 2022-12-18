@@ -42,14 +42,15 @@
                 <TableColumn fx:id="ADJUSTMENT_MODE" prefWidth="73.0" text="MODE" />
                 <TableColumn fx:id="ADJUSTMENT_REASON" prefWidth="79.0" text="REASON" />
 
-                <TableColumn fx:id="REMARKS" prefWidth="93.0" text="REMARKS" />
+                <TableColumn fx:id="REMARKS" prefWidth="48.60003662109375" text="REMARKS" />
 
-                <TableColumn fx:id="STATUS" prefWidth="75.0" text="STATUS" />
-                <TableColumn fx:id="STATUS_Date" prefWidth="75.0" text="STATUS_Date" />
-                <TableColumn fx:id="OpenButton" prefWidth="75.0" text="OpenDetail" />
+                <TableColumn fx:id="STATUS" prefWidth="51.000030517578125" text="STATUS" />
+                <TableColumn fx:id="STATUS_Date" minWidth="6.20001220703125" prefWidth="64.0" text="STATUS_Date" />
+                <TableColumn fx:id="OpenButton" prefWidth="160.0" text="OpenDetail"/>
 
             </columns>
             </TableView>
          <Button fx:id="DetailBtn" layoutX="606.0" layoutY="24.0" mnemonicParsing="false" onAction="#DetailBtnClick" text="Open" />
-        </children></Pane>
+        </children>
+    </Pane>
 </VBox>

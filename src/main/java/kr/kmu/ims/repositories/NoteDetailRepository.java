@@ -168,4 +168,45 @@ public class NoteDetailRepository {
             throw e;
         }
     }
+
+
+//--------------------------------------
+
+    public static void insertAddGoods (String noteId, String id, String itemCode, String Description, String location, String reason) throws SQLException, ClassNotFoundException {
+        //Declare a DELETE statement
+        String updateStmt =
+                "BEGIN\n" +
+                        "INSERT INTO goods_adjustment_note_details (\n" +
+                        "goods_adjustment_note_id,\n" +
+                        "item_id,\n" +
+                        "item_code,\n" +
+                        "item_description,\n" +
+                        "stock_qty,\n" +
+                        "uom,\n" +
+                        "ADJUSTMENT_QTY,\n" +
+                        "location,\n" +
+                        "adjustment_reason\n" +
+                        ") VALUES (\n'" +
+                        noteId + "',\n'" +
+                        id +"',\n'" +
+                        itemCode +"',\n'" +
+                        Description +"',\n" +
+                        "'0.0' ,\n" +
+                        "'ea',\n" +
+                        "'1.0',\n'" +
+                        location +"',\n'" +
+                        reason+ "'\n" +
+                        "); "
+                        +"END;";
+
+        //Execute DELETE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (SQLException e) {
+            System.out.print("Error occurred while DELETE Operation: " + e);
+            throw e;
+        }
+    }
+
+
 }

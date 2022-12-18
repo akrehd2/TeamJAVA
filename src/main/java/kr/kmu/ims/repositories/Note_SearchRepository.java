@@ -2,6 +2,7 @@ package kr.kmu.ims.repositories;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import kr.kmu.ims.models.Customer;
 import kr.kmu.ims.models.Goods;
 import kr.kmu.ims.util.DBUtil;
@@ -69,6 +70,9 @@ public class Note_SearchRepository {
         //return empList (ObservableList of Customers)
         return ganList;
     }
+
+
+
 
 
 }

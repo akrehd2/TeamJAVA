@@ -53,7 +53,7 @@
                                 <Font name="Arial Italic" size="12.0" />
                             </font>
                         </TextField>
-                        <Button layoutX="207.0" layoutY="27.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="26.0" text="Button" onAction="#searchNoteDetail"/>
+                        <Button layoutX="207.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchNoteDetail" prefHeight="22.0" prefWidth="26.0" text="Button" />
                         <DatePicker layoutX="90.0" layoutY="56.0" prefHeight="22.0" prefWidth="66.0" promptText="  /  /" />
                         <ChoiceBox layoutX="90.0" layoutY="90.0" prefHeight="22.0" prefWidth="143.0" />
                         <TextField layoutX="90.0" layoutY="121.0" prefHeight="22.0" prefWidth="143.0" />
@@ -61,37 +61,51 @@
                     </children></Pane>
                 <Pane layoutX="281.0" layoutY="36.0" prefHeight="200.0" prefWidth="579.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
                     <children>
-                        <Label layoutX="14.0" layoutY="30.0" text="Item Id">
+                        <Label layoutX="226.0" layoutY="30.0" text="Gan No.">
                             <font>
                                 <Font name="Arial" size="12.0" />
-                            </font></Label>
-                        <TextField layoutX="78.0" layoutY="26.0" prefHeight="22.0" prefWidth="103.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="Gan" layoutX="278.0" layoutY="27.0" prefHeight="22.0" prefWidth="103.0" promptText="Gan id" />
+                        
+                        <Label layoutX="26.0" layoutY="30.0" text="Item Id">
+                            <font>
+                                <Font name="Arial" size="12.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="ItemID" layoutX="79.0" layoutY="27.0" prefHeight="22.0" prefWidth="103.0" promptText="id" />
+
                         <Label layoutX="14.0" layoutY="61.0" text="Item Code">
                             <font>
                                 <Font name="Arial" size="12.0" />
                             </font>
                         </Label>
+                        <TextField fx:id="ItemCode" layoutX="79.0" layoutY="59.0" prefHeight="22.0" prefWidth="103.0" promptText="code" />
+
                         <Label layoutX="14.0" layoutY="93.0" text="Description">
                             <font>
                                 <Font name="Arial" size="12.0" />
                             </font>
                         </Label>
+                        <TextArea fx:id="Description" layoutX="79.0" layoutY="95.0" prefHeight="50.0" prefWidth="103.0" promptText="d" />
+
                         <Label layoutX="14.0" layoutY="150.0" text="Location">
                             <font>
                                 <Font name="Arial" size="12.0" />
                             </font>
                         </Label>
-                        <Label layoutX="228.0" layoutY="30.0" text="Reason">
+                        <TextArea fx:id="Location" layoutX="79.0" layoutY="153.0" prefHeight="41.0" prefWidth="103.0" promptText="location" />
+
+                        <Label layoutX="228.0" layoutY="52.0" text="Reason">
                             <font>
                                 <Font name="Arial" size="12.0" />
                             </font>
                         </Label>
-                        <TextField layoutX="78.0" layoutY="26.0" prefHeight="22.0" prefWidth="103.0" />
-                        <TextArea layoutX="79.0" layoutY="95.0" prefHeight="50.0" prefWidth="103.0" />
-                        <TextField layoutX="79.0" layoutY="59.0" prefHeight="22.0" prefWidth="103.0" />
-                        <TextArea layoutX="79.0" layoutY="153.0" prefHeight="41.0" prefWidth="103.0" />
-                  <TextField layoutX="228.0" layoutY="50.0" prefHeight="134.0" prefWidth="276.0" />
-                    </children></Pane>
+                        <TextField fx:id="Reason" layoutX="228.0" layoutY="71.0" prefHeight="113.0" prefWidth="276.0" promptText="reason" />
+                    </children>
+                </Pane>
+
+
                 <TableView fx:id="NoteDetailTable" layoutX="14.0" layoutY="255.0" prefHeight="269.0" prefWidth="846.0">
                     <columns>
                         <TableColumn fx:id="GOODS_ADJUSTMENT_NOTE_DETAIL_ID" prefWidth="78.0" text="Item Id" />
@@ -103,7 +117,7 @@
                         <TableColumn fx:id="ADJUSTMENT_REASON" prefWidth="200.66668701171875" text="Reason" />
                     </columns>
                 </TableView>
-                <Button layoutX="14.0" layoutY="537.0" mnemonicParsing="false" text="+ Add line item">
+                <Button fx:id="AddLineItem" layoutX="14.0" layoutY="537.0" mnemonicParsing="false" onAction="#AddItemDetail" text="+ Add line item">
                     <font>
                         <Font name="Arial" size="12.0" />
                     </font></Button>
@@ -117,11 +131,11 @@
                     </font>
                 </Label>
                 <TextField layoutX="769.0" layoutY="538.0" prefHeight="22.0" prefWidth="96.0" />
-                <Button layoutX="654.0" layoutY="572.0" mnemonicParsing="false" text="Delete" onAction="#Delete_NoteDetail">
+                <Button layoutX="654.0" layoutY="572.0" mnemonicParsing="false" onAction="#Delete_NoteDetail" text="Delete">
                     <font>
                         <Font name="Arial" size="12.0" />
                     </font></Button>
-                <Button layoutX="773.0" layoutY="572.0" mnemonicParsing="false" text="Save &amp; Close" onAction="#Save_NoteDetail">
+                <Button layoutX="773.0" layoutY="572.0" mnemonicParsing="false" onAction="#Save_NoteDetail" text="Save &amp; Close">
                     <font>
                         <Font name="Arial" size="12.0" />
                     </font></Button>
