@@ -1,9 +1,6 @@
 package kr.kmu.ims.controllers;
 
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,20 +8,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import javafx.scene.control.cell.PropertyValueFactory;
-
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import kr.kmu.ims.models.Goods;
+import kr.kmu.ims.models.*;
 
-import kr.kmu.ims.models.Customer;
-import kr.kmu.ims.models.Employee;
 import kr.kmu.ims.models.Goods;
-import kr.kmu.ims.repositories.CustomerRepository;
-import kr.kmu.ims.repositories.EmployeeRepository;
+import kr.kmu.ims.repositories.NoteDetailRepository;
 import kr.kmu.ims.repositories.Note_SearchRepository;
 
 import java.io.IOException;
@@ -32,9 +23,6 @@ import java.io.IOException;
 import java.sql.Date;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -108,14 +96,13 @@ public class Note_SearchController {
             return t;
         });
 
-//        GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(new PropertyValueFactory<>("goodsAdjustmentNoteIdProperty"));
+        //GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(new PropertyValueFactory<>("goodsAdjustmentNoteIdProperty"));
         //the above line is also a way to show data.
 
 
         GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(cellData -> cellData.getValue().goodsAdjustmentNoteIdProperty().asObject());
         DOCUMENT_NO.setCellValueFactory(cellData -> cellData.getValue().documentNoProperty());
-
-
+        ADJUSTMENT_DATE.setCellValueFactory(cellData -> cellData.getValue().adjustmentDateProperty());
 
         //add more of your fields here that we show in table.
         //ADJUSTMENT_DATE.setCellValueFactory(); .... do it ..
@@ -124,9 +111,8 @@ public class Note_SearchController {
         //welcome.. if you need more help, i am awake, ping me again.
         //okay...........
 
-    }
 
-    private final String viewPath = "/kr/kmu/ims/views/";
+    }
 
     public void showDialog(final String viewName, String title) {
 
@@ -173,6 +159,7 @@ public class Note_SearchController {
         System.out.println(data.get(1).getDocument_no());
         System.out.println(data.get(2).getGoodsAdjustmentNoteId());
         System.out.println(data.get(2).getDocument_no());
+
         //GoodsTable.set
 
         //GoodsTable.getItems().clear();
@@ -180,9 +167,11 @@ public class Note_SearchController {
 
 
     @FXML
-    public void DetailBtnClick(ActionEvent actionEvent) throws IOException {
-
+    public void DetailBtnClick(ActionEvent actionEvent) throws IOException, SQLException, ClassNotFoundException {
         showDialog("hello-view.fxml", "note_detail");
     }
+
 }
+
+
 
