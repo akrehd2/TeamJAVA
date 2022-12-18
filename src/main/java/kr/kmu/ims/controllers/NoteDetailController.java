@@ -106,4 +106,10 @@ public class NoteDetailController {
         System.out.println(data.get(0).get_Goods_adjustment_note_detail_id());
         System.out.println(data.get(0).get_Goods_adjustment_note_id());
     }
+
+    public void Save_NoteDetail(ActionEvent actionEvent) {
+    }
+
+    public void Delete_NoteDetail(ActionEvent actionEvent) {
+    }
 }
