@@ -41,7 +41,7 @@ public class NoteDetailRepository {
         }
     }
 
-    public static NoteDetail searchNoteDetail (String notedetailId) throws SQLException, ClassNotFoundException {
+    public static ObservableList<NoteDetail> searchNoteDetail (String notedetailId) throws SQLException, ClassNotFoundException {
         //Declare a SELECT statement
         String selectStmt = "SELECT * FROM GOODS_ADJUSTMENT_NOTE_DETAILS WHERE GOODS_ADJUSTMENT_NOTE_ID="+notedetailId;
 
@@ -51,10 +51,12 @@ public class NoteDetailRepository {
             ResultSet rsEmp = DBUtil.dbExecuteQuery(selectStmt);
 
             //Send ResultSet to the getEmployeeFromResultSet method and get employee object
-            NoteDetail noteDetail = getNOteDetailFromResultSet(rsEmp);
+            //NoteDetail noteDetail = getNOteDetailFromResultSet(rsEmp);
+            ObservableList<NoteDetail> list = getNoteDetaillist(rsEmp);
+            System.out.println(list.get(0).get_Goods_adjustment_note_detail_id());
 
             //Return employee object
-            return noteDetail;
+            return list;
         } catch (SQLException e) {
             System.out.println("While searching an employee with " + notedetailId + " id, an error occurred: " + e);
             //Return exception
