@@ -28,10 +28,17 @@ public class NoteDetailController {
 
     @FXML
     private final String viewPath = "/kr/kmu/ims/views/";
+    public TextField ItemID;
+    public TextField ItemCode;
+    public TextArea Description;
+    public TextArea Location;
+    public TextField Reason;
+    public Button AddLineItem;
+    public TextField Gan;
+
+
     @FXML
     private TextField searchIdText;
-
-
     @FXML
     private TableView NoteDetailTable;
     @FXML
@@ -56,12 +63,14 @@ public class NoteDetailController {
     @FXML
     private TextField IdText;
 //--------------------------------------------------------
+
     //Delete button
     @FXML
     private TextField Code;
     @FXML
     private TextField ReasonText;
 //--------------------------------------------------------
+
     //Initializing the controller class.
     //This method is automatically called after the fxml file has been loaded.
 
@@ -186,7 +195,18 @@ public class NoteDetailController {
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    @FXML
+    public void AddItemDetail(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        //아이템 추가
+        String GanId = Gan.textProperty().getValue();
+        String itemId = ItemID.textProperty().getValue();
+        String itemCode = ItemCode.textProperty().getValue();
+        String description = Description.textProperty().getValue();
+        String location = Location.textProperty().getValue();
+        String reason = Reason.textProperty().getValue();
 
+        NoteDetailRepository.insertAddGoods(GanId, itemId, itemCode, description, location, reason);
     }
 }

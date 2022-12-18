@@ -8,10 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javafx.util.Callback;
 import kr.kmu.ims.models.*;
 
 import kr.kmu.ims.models.Goods;
@@ -39,7 +41,7 @@ public class Note_SearchController {
     @FXML
     public TableColumn<Goods, Integer> GOODS_ADJUSTMENT_NOTE_ID;
     @FXML
-    public  TableColumn<Goods, String> DOCUMENT_NO;
+    public TableColumn<Goods, String> DOCUMENT_NO;
     @FXML
     public TableColumn<Goods, Date> ADJUSTMENT_DATE;
     @FXML
@@ -65,7 +67,7 @@ public class Note_SearchController {
 
 
     @FXML
-    private void initialize () {
+    private void initialize() {
         /*
         The setCellValueFactory(...) that we set on the table columns are used to determine
         which field inside the Employee objects should be used for the particular column.
@@ -99,7 +101,7 @@ public class Note_SearchController {
         STATUS.setCellValueFactory(cellData -> cellData.getValue().status_Property());
         STATUS_Date.setCellValueFactory(cellData -> cellData.getValue().status_date_Property().asString());
 
-        //OpenButton.setCellValueFactory(new PropertyValueFactory<Goods, String>("Button"));
+        OpenButton.setCellValueFactory(new PropertyValueFactory<Goods, String>("Button"));
 
         //add more of your fields here that we show in table.
         //ADJUSTMENT_DATE.setCellValueFactory(); .... do it ..
@@ -114,7 +116,7 @@ public class Note_SearchController {
     public void showDialog(final String viewName, String title) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(viewPath+viewName));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(viewPath + viewName));
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -130,13 +132,13 @@ public class Note_SearchController {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void searchGoods(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         try {
             //Get all Employees information
             ObservableList<Goods> data = Note_SearchRepository.searchGoods();
 
-            //Populate Employees on TableView
             populateGoods(data);
 
 
@@ -147,13 +149,13 @@ public class Note_SearchController {
     }
 
 
-
     @FXML
     private void populateGoods(ObservableList<Goods> data) throws ClassNotFoundException {
         //Set items to the employeeTable
         //addButtonToTable(data);
         //OpenButton.setCellValueFactory(new PropertyValueFactory<Goods, String>("Button"));
         GoodsTable.setItems(data);
+        // addButtonToTable(data);
 
     }
 
@@ -165,54 +167,11 @@ public class Note_SearchController {
     }
 
 
-
-
-    @FXML
-    private void addButtonToTable(ObservableList<Goods> data)
-    {
-
-        TableColumn<Goods, Void> colBtn = new TableColumn("Button Column");
-        javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>> cellFactory = new javafx.util.Callback<TableColumn<Goods, Void>, TableCell<Goods, Void>>()
-        {
-            @Override
-            public TableCell<Goods, Void> call(final TableColumn<Goods, Void> param) {
-                final TableCell<Goods, Void> cell = new TableCell<Goods, Void>() {
-                    private final Button btn = new Button("Open");
-
-                    {
-                        btn.setOnAction(event -> {
-                            try {
-                                OpenFinalizedPage(data.get(getIndex()));
-                            } catch (IOException e) {
-                                throw new RuntimeException(e);
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void updateItem(Void item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                            setGraphic(btn);
-                        }
-                    }
-                };
-                return cell;
-            }
-        };
-        colBtn.setCellFactory(cellFactory);
-    }
-
-
-
     @FXML
     public void OpenFinalizedPage(Goods Goods) throws IOException {
 
         showDialog("hello-view.fxml", "note_detail");
     }
-
 
 }
 
