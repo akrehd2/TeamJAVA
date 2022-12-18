@@ -1,5 +1,6 @@
 package kr.kmu.ims.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -78,7 +79,7 @@ public class NoteDetailController {
            t.setDaemon(true);
             return t;
         });
-        
+
 
         //GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(new PropertyValueFactory<>("goodsAdjustmentNoteIdProperty"));
         //the above line is also a way to show data.
@@ -109,8 +110,6 @@ public class NoteDetailController {
         }
     }
 
-
-
     @FXML
     private void populateNoteDetail(ObservableList<NoteDetail> data) throws ClassNotFoundException {
         //Set items to the employeeTable
@@ -120,6 +119,36 @@ public class NoteDetailController {
 
         System.out.println(data.get(0).get_Goods_adjustment_note_detail_id());
         System.out.println(data.get(0).get_Goods_adjustment_note_id());
+    }
+    @FXML
+    private void searchNote (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
+        try {
+            //Get Employee information
+            NoteDetail noteDetail = NoteDetailRepository.searchNoteDetail(IdText.getText());
+            //Populate Employee on TableView and Display on TextArea
+            populateAndShowNoteDetail(noteDetail);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //resultArea.setText("Error occurred while getting employee information from DB.\n" + e);
+            throw e;
+        }
+    }
+    private void populateAndShowNoteDetail(NoteDetail noteDetail) throws ClassNotFoundException {
+        if (noteDetail != null) {
+            populateNote(noteDetail);
+            //setEmpInfoToTextArea(emp);
+        } else {
+            //resultArea.setText("This employee does not exist!\n");
+        }
+    }
+    @FXML
+    private void populateNote (NoteDetail noteDetail) throws ClassNotFoundException {
+        //Declare and ObservableList for table view
+        ObservableList<NoteDetail> noteDetailsData = FXCollections.observableArrayList();
+        //Add employee to the ObservableList
+        noteDetailsData.add(noteDetail);
+        //Set items to the employeeTable
+        NoteDetailTable.setItems(noteDetailsData);
     }
 
     public void Save_NoteDetail(ActionEvent actionEvent) {
