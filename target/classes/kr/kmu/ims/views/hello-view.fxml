@@ -21,7 +21,7 @@
                     <font>
                         <Font name="Franklin Gothic Medium" size="17.0" />
                     </font></Label>
-                <Pane layoutX="14.0" layoutY="36.0" prefHeight="200.0" prefWidth="258.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
+                <Pane layoutX="14.0" layoutY="36.0" prefHeight="209.0" prefWidth="258.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
                     <children>
                         <Label layoutX="20.0" layoutY="30.0" text="GAN No:">
                             <font>
@@ -54,13 +54,13 @@
                             </font>
                         </TextField>
 
-                        <Button layoutX="207.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchNote" prefHeight="22.0" prefWidth="26.0" text="Button" />
+                        <Button layoutX="182.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchNote" prefHeight="22.0" prefWidth="26.0" text="Button" />
                         <DatePicker layoutX="90.0" layoutY="56.0" prefHeight="22.0" prefWidth="66.0" promptText="  /  /" />
                         <ChoiceBox layoutX="90.0" layoutY="90.0" prefHeight="22.0" prefWidth="143.0" />
                         <TextField layoutX="90.0" layoutY="121.0" prefHeight="22.0" prefWidth="143.0" />
                         <DatePicker layoutX="90.0" layoutY="158.0" prefHeight="22.0" prefWidth="66.0" promptText="  /  /" />
                     </children></Pane>
-                <Pane layoutX="281.0" layoutY="36.0" prefHeight="200.0" prefWidth="579.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
+                <Pane layoutX="281.0" layoutY="36.0" prefHeight="209.0" prefWidth="579.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
                     <children>
                         <Label layoutX="226.0" layoutY="30.0" text="Gan No.">
                             <font>
@@ -97,18 +97,14 @@
                         </Label>
                         <TextArea fx:id="Location" layoutX="79.0" layoutY="153.0" prefHeight="41.0" prefWidth="103.0" promptText="location" />
 
-                        <Label layoutX="228.0" layoutY="52.0" text="Reason">
+                        <Label layoutX="227.0" layoutY="63.0" text="Reason">
                             <font>
                                 <Font name="Arial" size="12.0" />
                             </font>
                         </Label>
-
-                        <TextField layoutX="78.0" layoutY="26.0" prefHeight="22.0" prefWidth="103.0" />
-                        <TextArea layoutX="79.0" layoutY="95.0" prefHeight="50.0" prefWidth="103.0" />
-                        <TextField layoutX="79.0" layoutY="59.0" prefHeight="22.0" prefWidth="103.0" />
-                        <TextArea fx:id="" layoutX="79.0" layoutY="153.0" prefHeight="41.0" prefWidth="103.0" />
-                  <TextField fx:id="reasonText" layoutX="228.0" layoutY="50.0" prefHeight="134.0" prefWidth="276.0" />
-                    </children></Pane>
+                    <TextField fx:id="Reason" layoutX="278.0" layoutY="60.0" prefHeight="134.0" prefWidth="228.0" promptText="reason" />
+                    </children>
+                </Pane>
                 <TableView fx:id="NoteDetailTable" layoutX="14.0" layoutY="255.0" prefHeight="269.0" prefWidth="846.0">
                     <columns>
                         <TableColumn fx:id="GOODS_ADJUSTMENT_NOTE_DETAIL_ID" prefWidth="78.0" text="Item Id" />
