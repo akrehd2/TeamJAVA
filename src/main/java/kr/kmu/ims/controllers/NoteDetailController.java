@@ -56,6 +56,12 @@ public class NoteDetailController {
     @FXML
     private TextField IdText;
 //--------------------------------------------------------
+    //Delete button
+    @FXML
+    private TextField Code;
+    @FXML
+    private TextField ReasonText;
+//--------------------------------------------------------
     //Initializing the controller class.
     //This method is automatically called after the fxml file has been loaded.
 
@@ -155,6 +161,11 @@ public class NoteDetailController {
     }
 
     public void Delete_NoteDetail(ActionEvent actionEvent) {
+        try {
+            NoteDetailRepository.deleteAdjWithCode(Code.getText());
+        } catch (Exception e) {
+            ReasonText.setText("Problem occurred while deleting Goods " + e);
+        }
     }
 
 
