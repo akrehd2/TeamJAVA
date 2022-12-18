@@ -140,4 +140,21 @@ public class NoteDetailRepository {
             throw e;
         }
     }
+    public static void deleteAdjWithCode (String AdjCode)  {
+        //Declare a DELETE statement
+        String updateStmt =
+                "BEGIN\n" +
+                        "   DELETE FROM goods_adjustment_note_details " +
+                        "           WHERE item_code ="+ AdjCode +";\n" +
+                        "   COMMIT;\n" +
+                        "END;";
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (Exception e) {
+            System.out.print("Error occurred while DELETE Operation: " + e);
+
+        }
+    }
 }
