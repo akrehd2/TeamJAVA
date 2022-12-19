@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.util.StringConverter;
 import kr.kmu.ims.models.Customer;
 import kr.kmu.ims.models.Employee;
+import kr.kmu.ims.models.Goods;
 import kr.kmu.ims.repositories.CustomerRepository;
 import kr.kmu.ims.repositories.EmployeeRepository;
 
@@ -39,6 +40,7 @@ public class NoteDetailController {
     public TextField Reason;
     public Button AddLineItem;
     public TextField Gan;
+    public TextField AdjOty;
 
 
     @FXML
@@ -54,7 +56,7 @@ public class NoteDetailController {
     @FXML
     public TableColumn<NoteDetail, Integer> GOODS_ADJUSTMENT_NOTE_DETAIL_ID;
     @FXML
-    public TableColumn<NoteDetail, Integer> GOODS_ADJUSTMENT_NOTE_ID_;;
+    public TableColumn<NoteDetail, String> GoodsItemCode;;
     public TableColumn<NoteDetail, String> ITEM_DESCRIPTION;
     public TableColumn<NoteDetail, String> LOCATION;;
     public TableColumn<NoteDetail, String> UOM;
@@ -76,8 +78,7 @@ public class NoteDetailController {
 //--------------------------------------------------------
 
     //Delete button
-    @FXML
-    private TextField Code;
+
     @FXML
     private TextField ReasonText;
 //--------------------------------------------------------
@@ -87,16 +88,6 @@ public class NoteDetailController {
 
     @FXML
     private void initialize () {
-        /*
-        The setCellValueFactory(...) that we set on the table columns are used to determine
-        which field inside the Employee objects should be used for the particular column.
-        The arrow -> indicates that we're using a Java 8 feature called Lambdas.
-        (Another option would be to use a PropertyValueFactory, but this is not type-safe
-
-        We're only using StringProperty values for our table columns in this example.
-        When you want to use IntegerProperty or DoubleProperty, the setCellValueFactory(...)
-        must have an additional asObject():
-        */
 
 
         //For multithreading: Create executor that uses daemon threads:
@@ -107,11 +98,8 @@ public class NoteDetailController {
         });
 
 
-        //GOODS_ADJUSTMENT_NOTE_ID.setCellValueFactory(new PropertyValueFactory<>("goodsAdjustmentNoteIdProperty"));
-        //the above line is also a way to show data.
-
         GOODS_ADJUSTMENT_NOTE_DETAIL_ID.setCellValueFactory(cellData -> (cellData.getValue().Goods_adjustment_note_detail_id_Property().asObject()));
-        GOODS_ADJUSTMENT_NOTE_ID_.setCellValueFactory(cellData -> cellData.getValue().Goods_adjustment_note_id_Property().asObject());
+        GoodsItemCode.setCellValueFactory(cellData -> cellData.getValue().Item_code_Property());
         ITEM_DESCRIPTION.setCellValueFactory(cellData-> (cellData.getValue().Item_description_Property()));
         LOCATION.setCellValueFactory(cellData->cellData.getValue().LocationProperty());
         UOM.setCellValueFactory(cellDate->(cellDate.getValue().UomProperty()));
@@ -149,15 +137,12 @@ public class NoteDetailController {
     @FXML
     private void searchNote (ActionEvent actionEvent) throws ClassNotFoundException, SQLException {
         try {
-            //Get Employee information
-            //NoteDetail noteDetail = NoteDetailRepository.searchNoteDetail(IdText.getText());
             ObservableList<NoteDetail> data=NoteDetailRepository.searchNoteDetail(IdText.getText());
-            //Populate Employee on TableView and Display on TextArea
-            //populateAndShowNoteDetail(data);
+
             populateNoteDetail(data);
         } catch (SQLException e) {
             e.printStackTrace();
-            //resultArea.setText("Error occurred while getting employee information from DB.\n" + e);
+
             throw e;
         }
     }
@@ -202,7 +187,8 @@ public class NoteDetailController {
 
     public void Delete_NoteDetail(ActionEvent actionEvent) {
         try {
-            NoteDetailRepository.deleteAdjWithCode(Code.getText());
+
+            NoteDetailRepository.deleteAdjWithCode(ItemCode.getText());
         } catch (Exception e) {
             ReasonText.setText("Problem occurred while deleting Goods " + e);
         }
@@ -235,10 +221,11 @@ public class NoteDetailController {
         String itemId = ItemID.textProperty().getValue();
         String itemCode = ItemCode.textProperty().getValue();
         String description = Description.textProperty().getValue();
+        String adjOty = AdjOty.textProperty().getValue();
         String location = Location.textProperty().getValue();
         String reason = Reason.textProperty().getValue();
 
-        NoteDetailRepository.insertAddGoods(GanId, itemId, itemCode, description, location, reason);
+        NoteDetailRepository.insertAddGoods(GanId, itemId, itemCode, description, adjOty,location, reason);
     }
 
 
@@ -248,8 +235,7 @@ public class NoteDetailController {
     }
 
 
-
-
-
-
+    public void CloseBtn(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 }

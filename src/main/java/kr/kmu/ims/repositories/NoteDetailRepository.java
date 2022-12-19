@@ -192,7 +192,7 @@ public class NoteDetailRepository {
         String updateStmt =
                 "BEGIN\n" +
                         "   DELETE FROM goods_adjustment_note_details " +
-                        "           WHERE item_code ="+ AdjCode +";\n" +
+                        "           WHERE item_code = '"+ AdjCode +"';\n" +
                         "   COMMIT;\n" +
                         "END;";
 
@@ -209,7 +209,7 @@ public class NoteDetailRepository {
 
 //--------------------------------------
 
-    public static void insertAddGoods (String noteId, String id, String itemCode, String Description, String location, String reason) throws SQLException, ClassNotFoundException {
+    public static void insertAddGoods (String noteId, String id, String itemCode, String Description, String adjQty,String location, String reason) throws SQLException, ClassNotFoundException {
         //Declare a DELETE statement
         String updateStmt =
                 "BEGIN\n" +
@@ -229,8 +229,8 @@ public class NoteDetailRepository {
                         itemCode +"',\n'" +
                         Description +"',\n" +
                         "'0.0' ,\n" +
-                        "'ea',\n" +
-                        "'1.0',\n'" +
+                        "'ea',\n'" +
+                        adjQty +"',\n'" +
                         location +"',\n'" +
                         reason+ "'\n" +
                         "); "
