@@ -178,9 +178,11 @@ public class NoteDetailController {
         //} catch (SQLException e) {
             //resultArea.setText("Problem occurred while updating email: " + e);
         //}
+        String ID = IdText.textProperty().getValue();
+
         try {
             //add new employee
-            NoteDetailRepository.insertNoteDetail(locationText.getText(), reasonText.getText());
+            NoteDetailRepository.Report( ID, CurDate.getEditor().toString(), Reason.getText(), Status.getText());
             //resultArea.setText("Employee inserted! \n");
 
             //reload all records
