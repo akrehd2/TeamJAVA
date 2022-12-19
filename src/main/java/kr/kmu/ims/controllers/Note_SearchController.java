@@ -198,15 +198,24 @@ public class Note_SearchController {
                             Goods date_ = getTableView().getItems().get(getIndex());
                             System.out.println("selectedData: " + date_.getGoodsAdjustmentNoteId());
                             try {
-
+                                String statusDate ="";
                                 SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-MM-dd");
-                                String statusDate = afterFormat.format(date_.getStatus_date());
+                                //현재 날짜 ->string으로
+                                Date now = Date.valueOf(LocalDate.now());
+                                String nowDate = afterFormat.format(now);
 
-                                statusDate = statusDate.replace ( " " , "T" );
-
-                             //   LocalDate localDate = LocalDate.parse(statusDate);
-                               // System.out.println(statusDate);
-                                showDetail(date_.getGoodsAdjustmentNoteId(),statusDate);
+                                if(date_.getStatus_date() == null)
+                                {
+                                    Date statusDate_ = Date.valueOf(LocalDate.now());
+                                    statusDate = afterFormat.format(statusDate_);
+                                }
+                                else
+                                {
+                                    //status 날짜
+                                    statusDate = afterFormat.format(date_.getStatus_date());
+                                    statusDate = statusDate.replace ( " " , "T" );
+                                }
+                                showDetail(date_.getGoodsAdjustmentNoteId(),nowDate,statusDate, date_.getStatus());
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
                             } catch (ClassNotFoundException e) {
@@ -245,11 +254,14 @@ public class Note_SearchController {
 
     }
 
-    public void showDetail(int id, String statusDate) throws SQLException, ClassNotFoundException, IOException {
+    public void showDetail(int id, String nowDate, String statusDate, String status) throws SQLException, ClassNotFoundException, IOException {
         NoteDetailController controller = (NoteDetailController) InventoryApplication.Instance.rootController.showTabOpenButton("hello-view.fxml", "note_detail");
 
         controller.SetganID(String.valueOf(id));
+        controller.AdjDate(nowDate);
         controller.StatusDate(statusDate);
+
+        controller.Status(status);
     }
 
 

@@ -53,8 +53,8 @@
 
 
                         <Button layoutX="182.0" layoutY="27.0" mnemonicParsing="false" onAction="#searchNote" prefHeight="22.0" prefWidth="26.0" text="Button" />
-                        <DatePicker layoutX="90.0" layoutY="56.0" prefHeight="22.0" prefWidth="143.0" promptText="  /  /" />
-                        <TextField layoutX="90.0" layoutY="94.0" prefHeight="22.0" prefWidth="143.0" />
+                        <DatePicker fx:id="CurDate" layoutX="90.0" layoutY="56.0" prefHeight="22.0" prefWidth="143.0" promptText="  /  /" />
+                        <TextField  fx:id="Status" layoutX="90.0" layoutY="94.0" prefHeight="22.0" prefWidth="143.0" promptText="status" />
                         <DatePicker fx:id="StatusDate" layoutX="90.0" layoutY="148.0" prefHeight="22.0" prefWidth="143.0" promptText="  /  /" />
                     </children></Pane>
                 <Pane layoutX="281.0" layoutY="36.0" prefHeight="209.0" prefWidth="579.0" style="-fx-border-color: gray; -fx-border-width: 0.5px;">
@@ -118,11 +118,11 @@
                     <columns>
                         <TableColumn fx:id="GOODS_ADJUSTMENT_NOTE_DETAIL_ID" prefWidth="78.0" text="Item Id" />
                         <TableColumn fx:id="GoodsItemCode" prefWidth="85.33331298828125" text=" Item Code" />
-                        <TableColumn fx:id="ITEM_DESCRIPTION" prefWidth="142.33334350585938" text="Description" />
-                        <TableColumn fx:id="LOCATION" prefWidth="131.0" text="Location" />
-                        <TableColumn fx:id="UOM" prefWidth="98.0" text="Uom" />
-                        <TableColumn fx:id="ADJUSTMENT_QTY" prefWidth="110.0" text="Adj Qty" />
-                        <TableColumn fx:id="ADJUSTMENT_REASON" prefWidth="200.66668701171875" text="Reason" />
+                        <TableColumn fx:id="ITEM_DESCRIPTION" prefWidth="127.39999389648438" text="Description" />
+                        <TableColumn fx:id="LOCATION" prefWidth="113.19998168945312" text="Location" />
+                        <TableColumn fx:id="UOM" prefWidth="98.40005493164062" text="Uom" />
+                        <TableColumn fx:id="ADJUSTMENT_QTY" prefWidth="122.5999755859375" text="Adj Qty" />
+                        <TableColumn fx:id="ADJUSTMENT_REASON" prefWidth="228.60003662109375" text="Reason" />
                     </columns>
                 </TableView>
                 <Button fx:id="AddLineItem" layoutX="14.0" layoutY="537.0" mnemonicParsing="false" onAction="#AddItemDetail" text="+ Add line item">

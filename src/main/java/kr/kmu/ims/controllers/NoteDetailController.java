@@ -43,6 +43,8 @@ public class NoteDetailController {
     public TextField AdjOty;
 
     public DatePicker StatusDate;
+    public TextField Status;
+    public DatePicker CurDate;
     @FXML
     private TextField searchIdText;
     @FXML
@@ -240,8 +242,15 @@ public class NoteDetailController {
     public void StatusDate(String Date)
     {
         StatusDate.getEditor().setText(Date);
-       // StatusDate(Date);
-        //StatusDate.setValue(Date);
+
+    }
+    public void AdjDate(String Date)
+    {
+        CurDate.getEditor().setText(Date);
+    }
+    public void Status(String status)
+    {
+        Status.setText(status);
     }
 
 

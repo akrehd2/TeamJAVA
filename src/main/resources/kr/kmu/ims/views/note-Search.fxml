@@ -46,11 +46,10 @@
 
                 <TableColumn fx:id="STATUS" prefWidth="51.000030517578125" text="STATUS" />
                 <TableColumn fx:id="STATUS_Date" minWidth="6.20001220703125" prefWidth="64.0" text="STATUS_Date" />
-                <TableColumn fx:id="OpenButton" prefWidth="160.0" text="OpenDetail"/>
+                <TableColumn fx:id="OpenButton" prefWidth="102.0" text="OpenDetail" />
 
             </columns>
             </TableView>
-         <Button fx:id="DetailBtn" layoutX="606.0" layoutY="24.0" mnemonicParsing="false" onAction="#DetailBtnClick" text="Open" />
         </children>
     </Pane>
 </VBox>
