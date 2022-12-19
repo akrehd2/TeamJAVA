@@ -17,12 +17,22 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import kr.kmu.ims.models.NoteDetail;
 import kr.kmu.ims.repositories.NoteDetailRepository;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperViewer;
+
+import net.sf.jasperreports.engine.JRException;
+
 
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -179,10 +189,18 @@ public class NoteDetailController {
             //resultArea.setText("Problem occurred while updating email: " + e);
         //}
         String ID = IdText.textProperty().getValue();
+        /*
+        JasperReport jreport = JasperCompileManager.compileReport();
+        JRBeanCollectionDataSource jcs = new JRBeanCollectionDataSource(new ArrayList<>());
+        JasperPrint jprint = JasperFillManager.fillReport(jreport, null, jcs);
+
+        JasperViewer.viewReport(jprint, false);
+        */
 
         try {
             //add new employee
-            NoteDetailRepository.Report( ID, CurDate.getEditor().toString(), Reason.getText(), Status.getText());
+
+            NoteDetailRepository.Report( ID, CurDate.getEditor().getText(), Reason.getText(), Status.getText());
             //resultArea.setText("Employee inserted! \n");
 
             //reload all records
