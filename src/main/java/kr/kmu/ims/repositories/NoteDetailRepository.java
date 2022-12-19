@@ -187,6 +187,25 @@ public class NoteDetailRepository {
         }
     }
 
+    public static void Report(String id, String date,String reason, String status)
+    {
+        String updateStmt =
+                "User{" +
+                "id='" + id + '\'' +
+                ", password='" + date + '\'' +
+                ", name='" + reason + '\'' +
+                ", email='" + status + '\'' +
+                '}';
+
+        //Execute UPDATE operation
+        try {
+            DBUtil.dbExecuteUpdate(updateStmt);
+        } catch (Exception e) {
+            System.out.print("Error occurred while DELETE Operation: " + e);
+
+        }
+    }
+
     public static void deleteAdjWithCode (String AdjCode)  {
         //Declare a DELETE statement
         String updateStmt =

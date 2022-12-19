@@ -10,6 +10,7 @@ module kr.kmu.ims {
     requires java.sql;
     requires java.sql.rowset;
     requires javax.persistence;
+    requires jasperreports;
 
     opens kr.kmu.ims to javafx.fxml;
     exports kr.kmu.ims;
