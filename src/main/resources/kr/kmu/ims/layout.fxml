@@ -19,6 +19,9 @@
                 <MenuItem mnemonicParsing="false" onAction="#showHelloDialog" text="Hello dialog" />
                 <MenuItem mnemonicParsing="false" onAction="#showEmployeeView" text="Manage Employees" />
                 <MenuItem mnemonicParsing="false" onAction="#showCustomerView" text="Manage customers" />
+
+                <MenuItem mnemonicParsing="false" onAction="#showWorkCenterView" text="WorkCenter Veiw" />
+                <MenuItem mnemonicParsing="false" onAction="#showDepartmentView" text="Department Veiw" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Help">
