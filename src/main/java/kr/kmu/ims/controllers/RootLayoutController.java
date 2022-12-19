@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -78,6 +79,7 @@ public class RootLayoutController {
     public void showTab(String viewName, String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(viewPath+ viewName));
         VBox vbox = (VBox) fxmlLoader.load();
+
         Tab tab=new Tab();
         tab.setContent(vbox);
         tab.setText(title);
@@ -86,6 +88,29 @@ public class RootLayoutController {
         rootTabPane.getTabs().add(0,tab);
         rootTabPane.getSelectionModel().select(0);
     }
+
+
+    public Object showTabOpenButton(String viewName, String title) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(viewPath+ viewName));
+        VBox vbox = (VBox) fxmlLoader.load();
+
+        var controller = fxmlLoader.getController();
+        System.out.println("controller");
+        System.out.println(controller);
+
+        Tab tab=new Tab();
+        tab.setContent(vbox);
+        tab.setText(title);
+        tab.setClosable(true);
+
+        rootTabPane.getTabs().add(0,tab);
+        rootTabPane.getSelectionModel().select(0);
+
+        return controller;
+    }
+
+
+
 
     public void showHelloDialog(ActionEvent actionEvent) {
         showDialog("hello-view.fxml", "Hello window Dialog");

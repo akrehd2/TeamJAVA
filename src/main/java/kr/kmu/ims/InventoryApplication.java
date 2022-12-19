@@ -12,12 +12,17 @@ import java.io.IOException;
 public class InventoryApplication extends Application {
     private BorderPane rootLayout;
     public Stage primaryStage;
+    public RootLayoutController rootController;
+
+    public static InventoryApplication Instance;
+
 
     @Override
     public void start(Stage stage) throws IOException {
         primaryStage=stage;
 
         initRootLayout();
+        InventoryApplication.Instance=this;
     }
 
 
@@ -34,9 +39,12 @@ public class InventoryApplication extends Application {
             primaryStage.setScene(scene); //Set the scene in primary stage.
 
             //Give the controller access to the main.
-            RootLayoutController controller = loader.getController();
+           // RootLayoutController controller = loader.getController();
 
-            controller.setStage(primaryStage);
+           // controller.setStage(primaryStage);
+
+            rootController = loader.getController();
+            rootController.setStage(primaryStage);
 
             //Third, show the primary stage
             primaryStage.show(); //Display the primary stage

@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.util.StringConverter;
 import kr.kmu.ims.models.Customer;
 import kr.kmu.ims.models.Employee;
 import kr.kmu.ims.repositories.CustomerRepository;
@@ -19,6 +20,8 @@ import kr.kmu.ims.repositories.NoteDetailRepository;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -28,6 +31,7 @@ public class NoteDetailController {
 
     @FXML
     private final String viewPath = "/kr/kmu/ims/views/";
+
     public TextField ItemID;
     public TextField ItemCode;
     public TextArea Description;
@@ -68,6 +72,7 @@ public class NoteDetailController {
     private Button FinalBtn;
     @FXML
     private TextField IdText;
+    private DatePicker AdjDate;
 //--------------------------------------------------------
 
     //Delete button
@@ -235,4 +240,16 @@ public class NoteDetailController {
 
         NoteDetailRepository.insertAddGoods(GanId, itemId, itemCode, description, location, reason);
     }
+
+
+    public void SetganID(String ID)
+    {
+        IdText.setText(ID);
+    }
+
+
+
+
+
+
 }
