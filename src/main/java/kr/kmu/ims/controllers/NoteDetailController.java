@@ -17,14 +17,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import kr.kmu.ims.models.NoteDetail;
 import kr.kmu.ims.repositories.NoteDetailRepository;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.view.JasperViewer;
+//import net.sf.jasperreports.engine.JasperCompileManager;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.engine.JasperReport;
+//import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+//import net.sf.jasperreports.view.JasperViewer;
 
-import net.sf.jasperreports.engine.JRException;
+//import net.sf.jasperreports.engine.JRException;
 
 
 import java.io.IOException;
