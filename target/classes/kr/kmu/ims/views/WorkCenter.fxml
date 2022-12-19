@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="208.0" prefWidth="432.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kmu.ims.controllers.WorkCenterController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <AnchorPane minHeight="129.0" minWidth="392.0" prefHeight="167.0" prefWidth="392.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+        <children>
+            <Pane layoutX="14.0" layoutY="46.0" prefHeight="83.0" prefWidth="358.0" style="-fx-border-style: solid; -fx-border-color: #939393;">
+            <children>
+                  <Button fx:id = "SearchBtn" layoutX="298.0" layoutY="13.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="30.0" onAction="#SearchButtonClick" text="..." />
+                  <Label layoutX="36.0" layoutY="17.0" text="WorkCenter Id: " />
+            </children></Pane>
+            <TextField fx:id="IDText" layoutX="146.0" layoutY="54.0" prefHeight="26.0" prefWidth="155.0" />
+            <Label layoutX="34.0" layoutY="93.0" text="WorkCenter Name:" />
+            <TextField fx:id="NameText" layoutX="146.0" layoutY="89.0" prefHeight="22.0" prefWidth="201.0" promptText="d" />
+
+            <Button layoutX="78.0" layoutY="142.0" mnemonicParsing="false" onAction="#DeleteButtonClick" text="     Delete     " />
+            <Button layoutX="184.0" layoutY="142.0" mnemonicParsing="false" onAction="#CloseButtonClick" text="     Close     " />
+
+            <Label layoutX="8.0" layoutY="-1.0" text="Basic Information">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <Button fx:id="addButton" layoutX="286.0" layoutY="142.0" mnemonicParsing="false" onAction="#InseartButton" text="Save" />
+
+        </children>
+    </AnchorPane>
+</VBox>

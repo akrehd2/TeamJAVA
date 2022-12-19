@@ -113,11 +113,18 @@ public class RootLayoutController {
 
 
     public void showHelloDialog(ActionEvent actionEvent) {
-        showDialog("hello-view.fxml", "Hello window Dialog");
+        showDialog("hello-view.fxml", "Hello window Dialog View");
     }
 
     public void empButtonClick(ActionEvent actionEvent) throws IOException {
-        showTab("note-Search.fxml", "note_Search");
+        showTab("note-Search.fxml", "note_Search View");
+    }
+
+    public void showWorkCenterView(ActionEvent actionEvent) throws IOException {
+        showTab("workCenter.fxml", "workCenter View");
+    }
+    public void showDepartmentView(ActionEvent actionEvent) throws IOException {
+        showTab("DepartmentsView.fxml", "Departments View");
     }
 }
 
