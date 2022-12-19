@@ -26,8 +26,11 @@ import java.io.IOException;
 import java.sql.Date;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.text.SimpleDateFormat;
 
 public class Note_SearchController {
 
@@ -192,10 +195,18 @@ public class Note_SearchController {
                     private final Button btn = new Button("Open");
                     {
                         btn.setOnAction((ActionEvent event) -> {
-                            Goods date_ID = getTableView().getItems().get(getIndex());
-                            System.out.println("selectedData: " + date_ID.getGoodsAdjustmentNoteId());
+                            Goods date_ = getTableView().getItems().get(getIndex());
+                            System.out.println("selectedData: " + date_.getGoodsAdjustmentNoteId());
                             try {
-                                showDetail(date_ID.getGoodsAdjustmentNoteId());
+
+                                SimpleDateFormat afterFormat = new SimpleDateFormat("yyyy-MM-dd");
+                                String statusDate = afterFormat.format(date_.getStatus_date());
+
+                                statusDate = statusDate.replace ( " " , "T" );
+
+                             //   LocalDate localDate = LocalDate.parse(statusDate);
+                               // System.out.println(statusDate);
+                                showDetail(date_.getGoodsAdjustmentNoteId(),statusDate);
                             } catch (SQLException e) {
                                 throw new RuntimeException(e);
                             } catch (ClassNotFoundException e) {
@@ -234,10 +245,11 @@ public class Note_SearchController {
 
     }
 
-    public void showDetail(int id) throws SQLException, ClassNotFoundException, IOException {
+    public void showDetail(int id, String statusDate) throws SQLException, ClassNotFoundException, IOException {
         NoteDetailController controller = (NoteDetailController) InventoryApplication.Instance.rootController.showTabOpenButton("hello-view.fxml", "note_detail");
 
         controller.SetganID(String.valueOf(id));
+        controller.StatusDate(statusDate);
     }
 
 

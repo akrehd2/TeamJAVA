@@ -42,7 +42,7 @@ public class NoteDetailController {
     public TextField Gan;
     public TextField AdjOty;
 
-
+    public DatePicker StatusDate;
     @FXML
     private TextField searchIdText;
     @FXML
@@ -83,6 +83,10 @@ public class NoteDetailController {
     private TextField ReasonText;
 //--------------------------------------------------------
 
+
+
+
+    //---------------------------------------------------
     //Initializing the controller class.
     //This method is automatically called after the fxml file has been loaded.
 
@@ -232,6 +236,12 @@ public class NoteDetailController {
     public void SetganID(String ID)
     {
         IdText.setText(ID);
+    }
+    public void StatusDate(String Date)
+    {
+        StatusDate.getEditor().setText(Date);
+       // StatusDate(Date);
+        //StatusDate.setValue(Date);
     }
 
 

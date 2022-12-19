@@ -9,6 +9,9 @@ import kr.kmu.ims.util.DBUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Note_SearchRepository {
 
@@ -60,6 +63,7 @@ public class Note_SearchRepository {
             gan.setLast_updated_by(rs.getInt("last_updated_by"));
             gan.setLast_updated_on(rs.getDate("last_updated_on"));
             gan.setStatus(rs.getString("status"));
+
             gan.setStatus_date(rs.getDate("STATUS_DATE"));
             gan.setIs_finalized(rs.getInt("IS_FINALIZED"));
             gan.setFinalized_by(rs.getInt("FINALIZED_BY"));
