@@ -66,7 +66,7 @@ public class NoteDetailController {
     @FXML
     private TableView NoteDetailTable;
     @FXML
-    public TableColumn<NoteDetail, Integer> GOODS_ADJUSTMENT_NOTE_DETAIL_ID;
+    public TableColumn<NoteDetail, Integer> ItemID_GOODS;
     @FXML
     public TableColumn<NoteDetail, String> GoodsItemCode;;
     public TableColumn<NoteDetail, String> ITEM_DESCRIPTION;
@@ -114,7 +114,7 @@ public class NoteDetailController {
         });
 
 
-        GOODS_ADJUSTMENT_NOTE_DETAIL_ID.setCellValueFactory(cellData -> (cellData.getValue().Goods_adjustment_note_detail_id_Property().asObject()));
+        ItemID_GOODS.setCellValueFactory(cellData -> (cellData.getValue().Item_id_Property().asObject()));
         GoodsItemCode.setCellValueFactory(cellData -> cellData.getValue().Item_code_Property());
         ITEM_DESCRIPTION.setCellValueFactory(cellData-> (cellData.getValue().Item_description_Property()));
         LOCATION.setCellValueFactory(cellData->cellData.getValue().LocationProperty());

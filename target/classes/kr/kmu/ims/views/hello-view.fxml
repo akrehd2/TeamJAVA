@@ -116,7 +116,7 @@
                 </Pane>
                 <TableView fx:id="NoteDetailTable" layoutX="14.0" layoutY="255.0" prefHeight="269.0" prefWidth="846.0">
                     <columns>
-                        <TableColumn fx:id="GOODS_ADJUSTMENT_NOTE_DETAIL_ID" prefWidth="78.0" text="Item Id" />
+                        <TableColumn fx:id="ItemID_GOODS" prefWidth="78.0" text="Item Id" />
                         <TableColumn fx:id="GoodsItemCode" prefWidth="85.33331298828125" text=" Item Code" />
                         <TableColumn fx:id="ITEM_DESCRIPTION" prefWidth="127.39999389648438" text="Description" />
                         <TableColumn fx:id="LOCATION" prefWidth="113.19998168945312" text="Location" />
